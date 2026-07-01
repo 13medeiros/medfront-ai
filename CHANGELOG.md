@@ -3,6 +3,18 @@
 All notable changes to MedFront AI are documented here.
 This project aims to follow [Semantic Versioning](https://semver.org/).
 
+## [0.10.1] — 2026-07-01
+
+Accuracy pass.
+
+### Fixed
+- The `slop-lint` rule count was described as "~35"; the registry actually holds
+  **37** rules (an earlier count missed the `A11Y-` prefix). Corrected across
+  `README.md`, `commands/anti-slop.md`, `scripts/README.md`, `EVALUATION.md` and
+  the v0.10.0 entry.
+- Full consistency sweep: version strings, tool/example counts and internal
+  links re-verified — nothing else stale.
+
 ## [0.10.0] — 2026-07-01
 
 Separate the concerns — slop is only the aesthetic gate.
@@ -21,7 +33,7 @@ Separate the concerns — slop is only the aesthetic gate.
 - Rules: `MOTION-03` (motion without `prefers-reduced-motion`), `A11Y-05`
   (icon-only control without a name), `A11Y-08` (iframe without title), `A11Y-10`
   (aria-hidden on a focusable element), `HERO-01`, `SECTION-01`, `BADGE-01`,
-  `BORDER-01`, `LAYOUT-01`, `COPY-05`, `CTA-02`. ~35 rules total.
+  `BORDER-01`, `LAYOUT-01`, `COPY-05`, `CTA-02`. 37 rules total.
 - `--max` gates the Visual Slop; a honesty blocker also fails CI.
 
 ### Why

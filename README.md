@@ -14,9 +14,9 @@ convergence, and a **runtime smoke check** that blocks *certified-but-broken*.
 `inspect`, `smoke`, `certify`) or **run a profile** for the whole arc — see the
 command palette in [`COMMANDS.md`](./COMMANDS.md).
 
-> Status: `v0.10.0` — **experimental / early release.** Installable Claude Code
+> Status: `v0.10.1` — **experimental / early release.** Installable Claude Code
 > skill: a directable command palette, measured quality modules, six tested
-> tools (contrast, screenshots, benchmark, a **~35-rule deterministic frontend
+> tools (contrast, screenshots, benchmark, a **37-rule deterministic frontend
 > auditor** that separates slop / honesty / accessibility / hygiene, convergence,
 > runtime smoke), ready-to-paste prompts and two worked examples. See
 > [`QUICK_START.md`](./QUICK_START.md), [`CHANGELOG.md`](./CHANGELOG.md) and

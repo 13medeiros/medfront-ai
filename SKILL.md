@@ -11,7 +11,7 @@ description: >-
   inspect, smoke, certify) or run a full profile (QUICK / STANDARD / AUDIT / FULL).
 license: MIT
 metadata:
-  version: 0.10.0
+  version: 0.10.1
 ---
 
 # MedFront AI
