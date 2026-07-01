@@ -36,3 +36,15 @@ Minimum certification score: 75 out of 100.
 ## Output
 
 Report the selected palette, rejected alternatives, token table, contrast issues, Color Score, open findings and validation plan.
+
+## Tooling
+
+Validate contrast with the bundled script instead of estimating:
+
+```bash
+node scripts/contrast.mjs "#232019 on #f3efe7" "#f3efe7 on #a8451e"
+```
+
+Score with anchored bands (`references/scoring-rubric.md`): the contrast and
+distribution sub-scores are computable; harmony, semantic roles and identity
+coherence are judgment sub-scores that require explicit evidence per point.

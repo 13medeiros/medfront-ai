@@ -44,3 +44,10 @@ Certification target: 30 or lower.
 ## Output
 
 For each issue, report evidence, score contribution, impact and correction. Recalculate the score after refinement.
+
+## Tooling
+
+Use `references/scoring-rubric.md` for the Slop Score bands so two runs agree.
+Some signals are mechanically checkable — e.g. repeated identical card grids,
+uniform radius/border across components, or a purple-blue gradient — and should
+be cited with the exact file and line, not asserted.

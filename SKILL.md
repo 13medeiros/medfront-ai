@@ -1,192 +1,124 @@
+---
+name: medfront-ai
+description: >-
+  Product-first methodology for designing, building, auditing and refining
+  distinctive, accessible, high-quality web frontends. Use when creating or
+  reviewing a UI, landing page, dashboard, web app or design system — to avoid
+  generic "AI slop", establish a color system (chroma), validate contrast,
+  accessibility and performance (benchmark), test real states, and certify
+  quality. Guides work through staged commands
+  (foundation → identity → chroma → build → benchmark → anti-slop → inspect →
+  certify) with reproducible, evidence-based scoring.
+license: MIT
+metadata:
+  version: 0.2.0
+---
+
 # MedFront AI
 
-MedFront AI is a frontend direction, creation, inspection and refinement skill for building distinctive, high-quality digital experiences.
+Frontend direction, creation, inspection and refinement for building
+distinctive, high-quality digital experiences.
 
-## Mission
+## When to use this skill
 
-Help an AI agent create frontend experiences that are strategically clear, visually distinctive, technically robust, responsive by composition, accessible, performant and memorable without becoming decorative noise.
+Use it whenever you are about to design, build, refactor, audit or review a web
+frontend — a landing page, dashboard, web app, component or design system.
+Reach for it especially to escape generic SaaS aesthetics, to make color and
+motion decisions defensible, and to certify accessibility, performance and
+resilience with evidence rather than claims.
 
 ## Core principle
 
-Do not begin by generating components. First understand the product, audience, context, desired emotion, interaction model and technical constraints. A strong frontend is a coherent system, not a collection of effects.
+Do not begin by generating components. First establish product truth, audience,
+context, desired emotion, interaction model and constraints. A strong frontend
+is a coherent system, not a collection of effects.
 
 ## Experience modes
 
-Classify the project before making design decisions:
+Classify the project before deciding anything visual — the mode changes
+hierarchy, density, motion, interaction and media:
 
-- `UTILITY`: dashboards, internal tools and frequently used products;
-- `BRAND`: institutional websites, portfolios and landing pages;
-- `CINEMATIC`: launches, campaigns and narrative-driven experiences;
-- `PLAYFUL`: exploratory, interactive or gamified experiences;
-- `COMMERCE`: product presentation, desire and conversion.
+`UTILITY` · `BRAND` · `CINEMATIC` · `PLAYFUL` · `COMMERCE`
 
-The selected mode changes hierarchy, motion, density, interaction and media decisions.
+## Project memory (create/read before substantial work)
 
-## Required project memory
+`PRODUCT.md` · `IDENTITY.md` · `MOTION.md` · `QUALITY.md` — templates in
+`templates/`. Never silently overwrite decisions; update them explicitly when
+the direction changes.
 
-Before substantial work, read or create:
+## Workflow
 
-- `PRODUCT.md`: audience, goals, value proposition and constraints;
-- `IDENTITY.md`: visual and verbal grammar;
-- `MOTION.md`: movement principles and reduced-motion rules;
-- `QUALITY.md`: measurable delivery criteria.
+Each step is a *type of work*, defined in `commands/`. Run them in order, but
+loop back when a gate fails (e.g. inspect → fix → re-inspect).
 
-Never silently overwrite project decisions. Update them explicitly when the direction changes.
+1. `foundation` · 2. `reference` · 3. `direction` · 4. `identity` ·
+5. `chroma` · 6. `signature` · 7. `sequence` · 8. `build` · 9. `reflow` ·
+10. `motion` · 11. `benchmark` · 12. `anti-slop` · 13. `compare` ·
+14. `inspect` · 15. `reinforce` · 16. `simplify`/`amplify`/`calm` ·
+17. `tune` · 18. `certify`.
 
-## Official workflow
+## Resources — load on demand (progressive disclosure)
 
-1. `foundation` — establish product context and constraints.
-2. `reference` — extract principles from references without copying.
-3. `direction` — define concept, hierarchy, architecture and experience mode.
-4. `identity` — create the visual and verbal grammar.
-5. `chroma` — design and validate palette harmony, semantics, distribution and contrast.
-6. `signature` — design the memorable moment connected to the product.
-7. `sequence` — define narrative rhythm, scenes and transitions.
-8. `build` — implement the interface with semantic, maintainable code.
-9. `reflow` — recompose the experience across breakpoints and input modes.
-10. `motion` — create and validate the movement language.
-11. `benchmark` — measure performance, accessibility and delivery budgets.
-12. `anti-slop` — detect generic AI-generated design and content patterns.
-13. `compare` — compare versions or references by principles, not visual copying.
-14. `inspect` — find technical, visual, accessibility and performance defects.
-15. `reinforce` — test extreme content, failures, loading and empty states.
-16. `simplify`, `amplify` or `calm` — adjust design intensity intentionally.
-17. `tune` — refine spacing, hierarchy, timing and interaction details.
-18. `certify` — perform the final quality assessment.
+Keep this file small; open the detailed resource only at the relevant step.
 
-## Chroma requirements
+| When | Read |
+|---|---|
+| Any command | `commands/README.md` (the command's own contract) |
+| `chroma` | `commands/chroma.md` |
+| `benchmark` | `commands/benchmark.md` |
+| `anti-slop` | `commands/anti-slop.md` |
+| `compare` | `commands/compare.md` |
+| `reference` / studying craft | `references/premium-experience-principles.md` |
+| Creating memory files | `templates/*.template.md` |
 
-Color decisions must be explicit and testable. The `chroma` stage must:
+> Single source of truth: per-command rules live in `commands/`. This file
+> orchestrates; it does not restate them.
 
-- propose and compare multiple palette directions when the identity is not established;
-- name the harmony strategy and emotional intent;
-- define canvas, surface, text, border, brand, accent and semantic tokens;
-- separate brand, success, availability, selection and focus roles;
-- document approximate color distribution;
-- validate text, controls and graphical contrast;
-- avoid communicating state only through color;
-- test representative screens and states;
-- document forbidden foreground/background combinations;
-- add a color rationale and token table to `IDENTITY.md`.
+## Measurement scripts (do not hand-roll validation)
 
-Use the MedFront Color Score:
+The certification gates require reproducible measurement. Use the bundled
+scripts instead of estimating — and never fabricate results.
 
-- harmony: 20;
-- contrast and readability: 20;
-- semantic roles: 15;
-- distribution and balance: 15;
-- identity coherence: 15;
-- state accessibility: 10;
-- light/dark consistency: 5.
+| Need | Script | Example |
+|---|---|---|
+| Contrast (chroma / inspect) | `scripts/contrast.mjs` | `node scripts/contrast.mjs "#232019 on #f3efe7"` |
+| 6-viewport screenshots | `scripts/shots.mjs` | `node scripts/shots.mjs --base http://localhost:3000 --out ./screenshots` |
+| Performance & a11y (benchmark) | `scripts/benchmark.mjs` | `node scripts/benchmark.mjs --url http://localhost:3000` |
 
-Minimum certification target: 75/100.
-
-## Benchmark requirements
-
-Measure rather than merely claim performance. Record available evidence for:
-
-- Lighthouse performance, accessibility, best practices and SEO;
-- Core Web Vitals or lab proxies;
-- initial JavaScript size;
-- total transfer size and request count;
-- image and font weight;
-- layout shifts;
-- animation smoothness and expensive effects;
-- unnecessary libraries, observers and global listeners.
-
-Default targets, adjustable in `QUALITY.md`:
-
-- Lighthouse Performance: 80 minimum, 90 preferred;
-- Accessibility: 90 minimum, 95 preferred;
-- LCP: under 2.5 seconds;
-- CLS: under 0.1;
-- INP: under 200 milliseconds when measurable.
-
-Never fabricate benchmark results. If tools cannot run, report the limitation and provide a reproducible command plan.
-
-## Anti-slop requirements
-
-The `anti-slop` stage must evaluate originality, visual coherence, copy quality, pattern repetition, component genericity, media quality and the relationship between form and product.
-
-Use a Slop Score from 0 to 100, where lower is better:
-
-- 0–15: strong identity;
-- 16–30: some generic patterns;
-- 31–50: predictable design;
-- 51–70: strong template or AI appearance;
-- 71–100: severe AI slop.
-
-Certification target: 30 or lower.
-
-Actively detect:
-
-- vague claims and AI marketing clichés;
-- unsupported metrics, testimonials and logos;
-- repeated identical card grids;
-- purple-blue gradients without rationale;
-- excessive glassmorphism, blurred orbs and glow;
-- icon libraries used without art direction;
-- identical reveal animation everywhere;
-- decorative dashboard mockups without product meaning;
-- every component using the same radius, border and shadow;
-- generic stock media;
-- interactions unrelated to the product.
-
-Every score contribution must identify evidence and a correction.
-
-## Compare requirements
-
-`compare` may evaluate a previous version, a proposed variant or a reference. Compare hierarchy, rhythm, density, contrast, identity, motion, clarity, accessibility and performance. Do not optimize for pixel similarity or copy protected visual identity.
-
-## Non-negotiable rules
-
-- Do not copy reference layouts, branding, assets or signature interactions literally.
-- Do not use animation without a communicative or interaction purpose.
-- Do not treat mobile as a reduced desktop screenshot.
-- Do not hide essential content behind complex interaction.
-- Do not declare completion without visual validation at multiple viewport sizes.
-- Do not optimize only for the ideal data state.
-- Support keyboard navigation and reduced-motion preferences.
-- Prefer semantic HTML and platform capabilities before adding libraries.
-- Prefer transform and opacity for motion.
-- Avoid generic AI-generated SaaS aesthetics unless explicitly required.
-- Do not certify unmeasured claims as facts.
-
-## Visual validation
-
-Minimum viewport review:
-
-- 360 × 800;
-- 390 × 844;
-- 768 × 1024;
-- 1280 × 800;
-- 1440 × 900;
-- 1920 × 1080.
-
-Check overflow, wrapping, stacking, focus, touch targets, sticky behavior, motion, loading shifts, content density and palette behavior.
-
-## Quality priorities
-
-Classify findings as:
-
-- `P0`: blocks use, access or task completion;
-- `P1`: seriously damages UX, stability or conversion;
-- `P2`: meaningful visual, technical or responsive defect;
-- `P3`: refinement opportunity.
+`contrast.mjs` needs no dependencies. `shots.mjs` needs `puppeteer-core` and a
+local Chrome/Edge (auto-detected). `benchmark.mjs` shells out to
+`npx lighthouse`. Each script degrades gracefully and prints a reproducible
+command when a tool is unavailable — report the limitation, do not invent
+numbers.
 
 ## Certification gates
 
-Do not certify when:
+Do not certify when any holds:
 
-- a `P0` or `P1` remains unresolved;
-- Color Score is below 75;
-- Slop Score is above 30;
-- Performance is below the project minimum;
-- Accessibility is below the project minimum;
-- mobile validation is missing;
-- essential loading, empty, error or extreme-content states are missing;
-- benchmark values were invented or cannot be reproduced.
+- an unresolved `P0` or `P1` finding;
+- Color Score below 75 (see `commands/chroma.md`);
+- Slop Score above 30 (see `commands/anti-slop.md`);
+- Performance or Accessibility below the project minimum (`commands/benchmark.md`);
+- mobile / multi-viewport validation missing;
+- essential loading, empty, error or extreme-content states missing;
+- any benchmark value fabricated or not reproducible.
 
-## Definition of done
+## Non-negotiable rules
 
-A project is complete only when it is useful, coherent, distinctive, chromatically resolved, responsive, accessible, performant, resilient, visually validated and maintainable.
+- Do not copy reference layouts, branding, assets or signature interactions.
+- No animation without a communicative or interaction purpose.
+- Mobile is a recomposition, not a shrunk desktop.
+- Do not hide essential content behind complex interaction.
+- Support keyboard navigation and `prefers-reduced-motion`.
+- Prefer semantic HTML and platform capabilities before libraries.
+- Prefer `transform`/`opacity` for motion.
+- Never fabricate metrics, testimonials, logos or benchmark values; label demo
+  data as demonstration.
+
+## Scoring must be reproducible
+
+When a score has computable inputs (contrast, JS size, layout shift,
+distribution), compute them with the scripts and cite the numbers. For
+judgment-based sub-scores, record explicit evidence for each point. Two runs on
+the same UI should not disagree by more than a small margin — if they would,
+the sub-score needs an anchored rubric, not a guess.

@@ -37,3 +37,16 @@ Projects may define stricter or different budgets in QUALITY.md.
 ## Output
 
 Create a benchmark report containing metric, result, target, status, evidence, likely cause and recommended action.
+
+## Tooling
+
+Run the bundled wrapper (records environment, command and date; never
+fabricates):
+
+```bash
+node scripts/benchmark.mjs --url http://localhost:3000          # desktop
+node scripts/benchmark.mjs --url http://localhost:3000 --mobile # mobile
+```
+
+Lighthouse is noisy on localhost — report the environment and, for gating,
+prefer the median of a few runs over a single sample.
