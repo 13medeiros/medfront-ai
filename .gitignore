@@ -1,0 +1,13 @@
+# dependencies
+node_modules/
+
+# logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# local screenshot output from scripts/shots.mjs
+/screenshots/
