@@ -72,6 +72,21 @@ Extracts typography, palette, geometry, borders, shadow, motion and layout, and
 (with `--vs`) reports per-dimension convergence plus the question: *did this
 identity come from the product, or was it reused by habit?* No dependencies.
 
+## `smoke.mjs` — did it actually run? (inspect / certify)
+
+The non-skippable runtime gate. Opens the built page and fails on console errors
+/ uncaught exceptions, or if the primary interaction does not change state.
+
+```bash
+node smoke.mjs src                       # serve a static dir and smoke it
+node smoke.mjs --url http://localhost:3000
+node smoke.mjs src --click "Start"       # name the primary control
+```
+
+Exit: `0` pass · `1` fail (errors / stuck) · `2` BLOCKED (could not run —
+treat as *not certified*, not "certified with a note"). Needs `puppeteer-core`
++ a local Chrome/Edge. A green Color/Slop score means nothing if this fails.
+
 ## Platform note
 
 On **Git Bash (Windows)** prefix commands with `MSYS_NO_PATHCONV=1` so route

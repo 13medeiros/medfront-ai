@@ -3,6 +3,33 @@
 All notable changes to MedFront AI are documented here.
 This project aims to follow [Semantic Versioning](https://semver.org/).
 
+## [0.7.0] — 2026-07-01
+
+The runtime gate — stop certifying pages that don't run.
+
+### Added
+- **`scripts/smoke.mjs`** — a non-skippable runtime check: serves/loads the
+  built page, fails on console errors / uncaught exceptions, and asserts the
+  primary interaction changes state (catches "stuck on screen one"). Exit `2`
+  when it cannot run — treated as *not certified*, never "certified with a note".
+  Validated on a real broken build (caught an SVG `className` crash) and a
+  working one (pass).
+
+### Changed
+- **Certification is now behavioral first.** `SKILL.md` gates and
+  `commands/README.md` (`inspect`, `certify`) require `smoke.mjs` to pass before
+  any score counts; the agent must **paste** tool outputs, not summarize them.
+- **Verification incomplete ≠ certification.** If smoke, screenshots or benchmark
+  could not run, the status is *not certified — verification incomplete*.
+- `references/scoring-rubric.md`: scores are explicitly *necessary, not
+  sufficient* — a green score on a page that doesn't run is worth zero.
+- `scripts/package.json`: description and script entries now list all six tools.
+
+### Why
+A generated example passed Color 89 / Slop 4 and was written up as "certified",
+yet the whole experience was stuck on the first screen due to a runtime crash —
+because nobody had actually opened it. This release closes that gap.
+
 ## [0.6.0] — 2026-07-01
 
 A second example, in the opposite mode — proving the method produces distinct

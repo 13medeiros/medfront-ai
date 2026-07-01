@@ -6,6 +6,12 @@ interface should land within a small margin. The rule that gets you there:
 > **Compute what is computable; require evidence for what is judged.**
 > Never assign a number without either a measurement or a cited artifact.
 
+**Scores are necessary, not sufficient — and they come *after* it runs.** Before
+any score, `scripts/smoke.mjs` must pass: the page loads, has no console errors,
+and its primary interaction changes state. A Color Score of 89 on a page that is
+stuck on screen one is worth zero. A failing or un-run smoke ⇒ *not certified*,
+regardless of every other number.
+
 - **Computable sub-scores** — derive from tools/tokens, not opinion (contrast,
   color distribution, JS size, CLS, viewport overflow). Use `scripts/`.
 - **Judgment sub-scores** — pick the band whose descriptor matches, and cite

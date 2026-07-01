@@ -9,11 +9,11 @@ product truth, picks an experience mode, builds an identity and color system,
 designs a signature moment, implements the interface, and validates it against
 real states, multiple viewports, measured performance and anti-slop criteria.
 
-> Status: `v0.6.0` — **experimental / early release.** Installable Claude Code
-> skill with measurable quality modules, tested tooling, an automated slop
-> linter, a cross-project convergence check, and ready-to-paste prompts. See
-> [`QUICK_START.md`](./QUICK_START.md), [`CHANGELOG.md`](./CHANGELOG.md) and
-> [`EVALUATION.md`](./EVALUATION.md).
+> Status: `v0.7.0` — **experimental / early release.** Installable Claude Code
+> skill with measurable quality modules, tested tooling (contrast, screenshots,
+> benchmark, slop-lint, convergence and a **runtime smoke gate**), ready-to-paste
+> prompts and two worked examples. See [`QUICK_START.md`](./QUICK_START.md),
+> [`CHANGELOG.md`](./CHANGELOG.md) and [`EVALUATION.md`](./EVALUATION.md).
 
 ## Why it's different
 
@@ -106,14 +106,15 @@ node scripts/shots.mjs --base http://localhost:3000     # 6 required viewports
 node scripts/benchmark.mjs --url http://localhost:3000  # Lighthouse report
 node scripts/slop-lint.mjs src --max 30                          # AI-slop evidence (gate at 30)
 node scripts/identity-fingerprint.mjs src --vs ../other --max 60 # convergence (gate at 60)
+node scripts/smoke.mjs src                              # did it actually run? (non-skippable gate)
 ```
 
-Gate-oriented scripts (`contrast`, `shots`, `benchmark`) exit non-zero on
-failure; the advisory `slop-lint` and `identity-fingerprint` exit non-zero only
-with a `--max` threshold — so all are CI-usable. `contrast.mjs`, `slop-lint.mjs`
-and `identity-fingerprint.mjs` have no dependencies; `shots.mjs` needs
-`puppeteer-core` + local Chrome/Edge; `benchmark.mjs` shells out to
-`npx lighthouse`.
+Gate-oriented scripts (`contrast`, `shots`, `benchmark`, `smoke`) exit non-zero
+on failure; the advisory `slop-lint` and `identity-fingerprint` exit non-zero
+only with a `--max` threshold — so all are CI-usable. `contrast.mjs`,
+`slop-lint.mjs` and `identity-fingerprint.mjs` have no dependencies; `shots.mjs`
+and `smoke.mjs` need `puppeteer-core` + local Chrome/Edge; `benchmark.mjs`
+shells out to `npx lighthouse`.
 
 ## Certification gates
 

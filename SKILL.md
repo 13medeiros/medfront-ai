@@ -11,7 +11,7 @@ description: >-
   certify) with reproducible, evidence-based scoring.
 license: MIT
 metadata:
-  version: 0.6.0
+  version: 0.7.0
 ---
 
 # MedFront AI
@@ -115,8 +115,9 @@ scripts instead of estimating — and never fabricate results.
 | Performance & a11y (benchmark) | `scripts/benchmark.mjs` | `node scripts/benchmark.mjs --url http://localhost:3000` |
 | Slop evidence (anti-slop) | `scripts/slop-lint.mjs` | `node scripts/slop-lint.mjs src` |
 | Cross-project convergence (compare) | `scripts/identity-fingerprint.mjs` | `node scripts/identity-fingerprint.mjs src --vs ../other` |
+| Runtime smoke — did it actually run? (inspect / certify) | `scripts/smoke.mjs` | `node scripts/smoke.mjs src` |
 
-`contrast.mjs`, `slop-lint.mjs` and `identity-fingerprint.mjs` need no dependencies. `shots.mjs` needs `puppeteer-core` and a
+`contrast.mjs`, `slop-lint.mjs` and `identity-fingerprint.mjs` need no dependencies. `shots.mjs` and `smoke.mjs` need `puppeteer-core` and a
 local Chrome/Edge (auto-detected). `benchmark.mjs` shells out to
 `npx lighthouse`. Each script degrades gracefully and prints a reproducible
 command when a tool is unavailable — report the limitation, do not invent
@@ -129,12 +130,21 @@ all; STANDARD applies them to the touched scope; QUICK does not produce
 full-product certification. Do not certify when any holds:
 
 - an unresolved `P0` or `P1` finding;
+- **the built experience does not actually run** — `scripts/smoke.mjs` fails or
+  was not run: console errors / uncaught exceptions, or the primary interaction
+  does not change state (the experience is stuck);
 - Color Score below 75 (see `commands/chroma.md`);
 - Slop Score above 30 (see `commands/anti-slop.md`);
 - Performance or Accessibility below the project minimum (`commands/benchmark.md`);
 - mobile / multi-viewport validation missing;
 - essential loading, empty, error or extreme-content states missing;
 - any benchmark value fabricated or not reproducible.
+
+**Verification incomplete is not certification.** If the runtime smoke, viewport
+screenshots or the benchmark could not be run, the status is *not certified —
+verification incomplete*, never *certified with a note*. A green Color/Slop score
+never certifies a page that does not run — open and click the built thing before
+certifying, and paste the tool output rather than summarizing it.
 
 ## Non-negotiable rules
 
