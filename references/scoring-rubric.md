@@ -41,6 +41,14 @@ regardless of every other number.
 
 Start at 0 and **add** contributions; do not certify above 30.
 
+> **Slop is only the aesthetic gate.** `scripts/slop-lint.mjs` deliberately
+> reports four separate results — an original interface must not be scored down
+> for problems that belong elsewhere. Route findings accordingly:
+> **Visual Slop** (this score) · **Honesty** (unmarked metrics/testimonials → a
+> **P1 certification blocker**) · **Accessibility** (→ the a11y gate) ·
+> **Hygiene** (advisory). Contributions saturate by count (1 occurrence = 50%
+> of a rule's weight), and justified `medfront-ignore` suppressions are reported.
+
 | Band | Meaning |
 |---|---|
 | 0–15 | Strong identity |

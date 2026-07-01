@@ -3,6 +3,32 @@
 All notable changes to MedFront AI are documented here.
 This project aims to follow [Semantic Versioning](https://semver.org/).
 
+## [0.10.0] — 2026-07-01
+
+Separate the concerns — slop is only the aesthetic gate.
+
+### Changed
+- **`slop-lint.mjs` now reports FOUR separate results** instead of one blended
+  score: **Visual Slop** (aesthetic gate), **Honesty** (unmarked
+  metrics/testimonials → a **P1 certification blocker**), **Accessibility**
+  (feeds the a11y gate) and **Hygiene** (advisory). An original interface is no
+  longer scored down for a missing `alt` or a `console.log`.
+- Added per-finding **confidence** (high/medium/low), **count-based saturation**
+  (1 occurrence = 50% of a rule's weight), and justified **suppressions**
+  (`// medfront-ignore ID -- reason`, reported — never silent).
+
+### Added
+- Rules: `MOTION-03` (motion without `prefers-reduced-motion`), `A11Y-05`
+  (icon-only control without a name), `A11Y-08` (iframe without title), `A11Y-10`
+  (aria-hidden on a focusable element), `HERO-01`, `SECTION-01`, `BADGE-01`,
+  `BORDER-01`, `LAYOUT-01`, `COPY-05`, `CTA-02`. ~35 rules total.
+- `--max` gates the Visual Slop; a honesty blocker also fails CI.
+
+### Why
+An external review flagged that mixing accessibility failures, hygiene and fake
+proof into one Slop Score can penalize a genuinely original design. Splitting the
+outputs routes each finding to the gate it belongs to.
+
 ## [0.9.0] — 2026-07-01
 
 A real deterministic slop detector.

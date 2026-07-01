@@ -46,7 +46,7 @@ modules (see `examples/service-booking/`).
 - Fixed README inconsistencies (slop-lint missing from the tooling list; still
   listed as roadmap although shipped).
 
-## Added in v0.5.0–v0.9.0
+## Added in v0.5.0–v0.10.0
 
 - **v0.5.0 — Quick Start + `prompts/`** so usage starts from a ready, profile-tied
   template instead of a generic "follow MedFront".
@@ -71,15 +71,21 @@ modules (see `examples/service-booking/`).
   detector (id + category + weight + `file:line`), grouped and `--json`-able for
   CI, covering color/geometry/components/motion/copy/honesty/accessibility.
   Deepens the anti-slop evidence from a handful of heuristics to a real rule set.
+- **v0.10.0 — separated concerns.** `slop-lint.mjs` now reports four results
+  (Visual Slop / Honesty=P1 blocker / Accessibility / Hygiene) with per-finding
+  confidence, count saturation and justified suppressions, plus new rules
+  (MOTION-03, structural HERO/SECTION/BADGE/BORDER, more a11y). An original UI is
+  no longer penalized for a missing alt or a console.log.
 
 ## Current limitations (roadmap)
 
 1. **Single-platform packaging.** Installation is documented and guaranteed for
    Claude Code only. Manual use is possible elsewhere, but official adapters for
    Cursor, Codex, OpenCode and Gemini CLI are not yet packaged.
-2. **Anti-slop is evidence, not verdict.** `slop-lint.mjs` is now a ~25-rule
-   deterministic engine, but final judgment is still the agent's; false
-   positives/negatives are expected and a shared choice can be product-appropriate.
+2. **Anti-slop is evidence, not verdict.** `slop-lint.mjs` is now a ~35-rule
+   engine that separates Slop / Honesty / Accessibility / Hygiene, but final
+   judgment is still the agent's; false positives/negatives are expected and a
+   shared choice can be product-appropriate (hence confidence + suppressions).
 3. **Scoring is anchored, not fully computed.** Contrast, distribution, state
    accessibility, performance and viewport checks are measurable; harmony,
    identity coherence and narrative remain judgment calls (with required
@@ -98,9 +104,9 @@ modules (see `examples/service-booking/`).
 - File-based project memory makes decisions explicit and re-auditable.
 - Real states (empty/error/loading/extreme) are first-class.
 
-## Scorecard (v0.9.0)
+## Scorecard (v0.10.0)
 
-| Dimension | v0.1.0 | v0.9.0 | Note |
+| Dimension | v0.1.0 | v0.10.0 | Note |
 |---|---|---|---|
 | Method & philosophy | 9/10 | 9/10 | Unchanged strength |
 | Stage coverage | 8/10 | 8/10 | Profiles + gate scope by profile |
@@ -116,7 +122,7 @@ modules (see `examples/service-booking/`).
 
 v0.1.0 was **a strong methodology trying to present itself as a skill.**
 
-v0.9.0 is **a functional early-stage skill** — installable on Claude Code, with
+v0.10.0 is **a functional early-stage skill** — installable on Claude Code, with
 its own methodology, project memory, profile-scoped gates, anchored rubrics,
 ready prompts, two worked examples, and validation tooling that now includes a
 **behavioral smoke gate** (the page must actually run before it can be
