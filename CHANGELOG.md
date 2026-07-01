@@ -3,6 +3,49 @@
 All notable changes to MedFront AI are documented here.
 This project aims to follow [Semantic Versioning](https://semver.org/).
 
+## [0.12.0] — 2026-07-01
+
+The motion probe grows up — GPU-aware, self-aware, honest about what it can't see.
+
+### Added
+- **Time filmstrip.** `motion.mjs` now films the page **over time right after
+  load** (intro / loader / idle / WebGL), not only down the scroll — the intro
+  animation was invisible to a scroll-only probe.
+- **GPU honesty.** It reads the WebGL renderer and enables the real GPU where
+  one exists (ANGLE→D3D11 on Windows). If the page draws WebGL but the backend
+  is **software** (SwiftShader/llvmpipe), it **declares Scroll-FPS UNMEASURABLE
+  at intended fidelity** and says to re-run on a real GPU — instead of reporting
+  a bogus software frame rate as if it were the site's motion.
+
+### Changed
+- **Natural scroll.** FPS/jank is sampled during a **real wheel scroll**
+  (`mouse.wheel`), so a smooth-scroll library (Lenis) is measured, not fought
+  with `scrollTo` — the old method produced a measurement artifact.
+- **Evidence, not verdict (mode-aware).** `motion`, `benchmark`, `anti-slop`,
+  `compare` and `inspect` now state that a number is read **against the
+  experience mode**: a CINEMATIC/experiential site is not failed by a low
+  Lighthouse perf score the way a UTILITY page is. Tools give evidence; the
+  verdict weighs intent.
+
+### Why
+Dogfooding on award-winning experiential sites (a Lenis + 21-canvas WebGL hero)
+exposed two failures that were **ours, not the sites'**: the probe was *blind*
+(a headless run fell back to SwiftShader, rendered at ~1fps, and the filmstrip
+caught only a frozen shader), and it *asserted a verdict it had no right to* —
+reporting the software frame rate as the site's motion. The fix is instrumental
+humility: get the GPU when it exists, film the intro on a time axis, measure
+smooth-scroll honestly, and **declare "unmeasurable" rather than fake a number**
+— the smoke-test principle applied to motion. Validated: impeccable.style
+(CSS-only, hardware AMD/D3D11, ~56fps, reduced-motion ✓) and landonorris.com
+(Lenis + 21 WebGL canvases, GPU render, the time filmstrip caught the 3D helmet
+assembling).
+
+### Roadmap (designed, next)
+- **CDP deep-capture** (v0.13): `Page.startScreencast` dense flipbook,
+  `Tracing`-domain compositor FPS, and an `Animation`-domain inventory
+  (time / scroll / view / rAF-WebGL drivers). Designed; deferred so each ships
+  tested.
+
 ## [0.11.0] — 2026-07-01
 
 Motion — the skill can finally see animation, not just static frames.

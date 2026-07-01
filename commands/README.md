@@ -6,6 +6,18 @@ Each command represents a type of work, not a fictional specialist persona. Comm
 
 `foundation → reference → direction → identity → chroma → signature → sequence → build → reflow → motion → benchmark → anti-slop → compare → inspect → reinforce → simplify/amplify/calm → tune → certify`
 
+## Evidence, not verdict — read by mode
+
+Every measured number (performance, CLS, FPS, Slop Score, contrast) is
+**evidence weighed against the project's experience mode**, not a pass/fail
+verdict on its own. A `CINEMATIC`/`BRAND` experience is not failed by a low
+Lighthouse performance score the way a `UTILITY` page is — record the number as
+context and let intent decide. This applies to `benchmark`, `anti-slop`,
+`compare`, `motion` and `inspect`. What stays **absolute in every mode**:
+honesty about real user-facing claims, the accessibility floor, reduced-motion,
+and a passing smoke. And a tool that *can't measure* a thing must say so — never
+fake the number.
+
 ## `foundation`
 Establish audience, goals, experience mode, constraints and success criteria. Create initial `PRODUCT.md` and `QUALITY.md`.
 
@@ -37,12 +49,17 @@ Recompose the interface for different widths, orientations, pointer types and de
 Define or inspect movement purpose, timing, easing, orchestration, performance and reduced-motion alternatives.
 
 **Don't judge motion from a static screenshot.** On a live URL, run
-`node scripts/motion.mjs --url <url>`: it captures a **scroll filmstrip** (frames
-to read as a sequence), measures **FPS / jank**, checks **reduced-motion** (with
-vs without), and detects **scroll-jacking** and animation libraries (GSAP, Lenis,
-Lottie, WebGL…). Read the filmstrip — does the movement reveal information and
-hold framerate, or is it decorative jank? Taste stays yours; the frames and the
-numbers are the evidence.
+`node scripts/motion.mjs --url <url>`: it captures a **time filmstrip** (frames
+over time right after load — the intro / idle / WebGL a scroll-only probe misses)
+and a **scroll filmstrip**, measures **FPS / jank** during a **natural wheel
+scroll** (so Lenis is measured, not fought), checks **reduced-motion** (with vs
+without), and detects **scroll-jacking** and animation libraries (GSAP, Lenis,
+Lottie, WebGL…). It reads the GPU: if the page draws WebGL but only a **software**
+renderer is available, it **declares FPS `UNMEASURABLE`** rather than reporting a
+fake software frame rate — re-run headful / on a real GPU for a true reading.
+Read the filmstrips — does the movement reveal information and hold framerate, or
+is it decorative jank? The frames and numbers are evidence read against the
+experience mode, not a verdict; taste stays yours.
 
 ## `benchmark`
 Run or define reproducible measurements for performance, accessibility, best practices, SEO, Web Vitals, bundle weight, transfer size, images, fonts and animation cost. Never invent results.

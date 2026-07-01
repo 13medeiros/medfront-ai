@@ -111,11 +111,21 @@ node motion.mjs --url https://site.com --out ./motion  # where frames go
 node motion.mjs --url https://site.com --json          # machine-readable
 ```
 
-Captures a **scroll filmstrip** (frames to read as a sequence), measures **FPS /
-jank** during a scripted scroll, checks **reduced-motion** (captures a with-vs-
-without pair), and detects **scroll-jacking** and animation libraries (GSAP,
-ScrollTrigger, Lenis, Lottie, WebGL/three, AOS, Swiper…). Needs `puppeteer-core`
-+ a local Chrome/Edge. The frames and numbers are evidence; taste stays yours.
+Captures **two filmstrips** — a **time filmstrip** (frames over time right after
+load: intro / loader / idle / WebGL, the motion a scroll-only probe misses) and a
+**scroll filmstrip** (top-to-bottom sequence) — measures **FPS / jank** during a
+**natural wheel scroll** (so a smooth-scroll library like Lenis is measured, not
+fought), checks **reduced-motion** (a with-vs-without pair), and detects
+**scroll-jacking** and animation libraries (GSAP, ScrollTrigger, Lenis, Lottie,
+WebGL/three, AOS, Swiper…).
+
+**GPU honesty.** It reads the WebGL renderer and enables the real GPU where one
+exists. If the page draws WebGL but the backend is **software** (SwiftShader/
+llvmpipe), it **declares Scroll-FPS `UNMEASURABLE`** and says to re-run on a real
+GPU — it will not report a software frame rate as if it were the site's motion.
+
+Needs `puppeteer-core` + a local Chrome/Edge. The frames and numbers are
+evidence read **against the experience mode**, not a verdict; taste stays yours.
 
 ## Platform note
 
