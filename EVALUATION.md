@@ -46,7 +46,7 @@ modules (see `examples/service-booking/`).
 - Fixed README inconsistencies (slop-lint missing from the tooling list; still
   listed as roadmap although shipped).
 
-## Added in v0.5.0–v0.8.0
+## Added in v0.5.0–v0.9.0
 
 - **v0.5.0 — Quick Start + `prompts/`** so usage starts from a ready, profile-tied
   template instead of a generic "follow MedFront".
@@ -67,14 +67,19 @@ modules (see `examples/service-booking/`).
   directable palette (`COMMANDS.md`: Direct / Build / Prove) — pull one command
   or run a profile. No change to the methodology or gates; lowers activation
   energy and makes the verification differentiator explicit.
+- **v0.9.0 — deterministic slop engine.** `slop-lint.mjs` rewritten as a ~25-rule
+  detector (id + category + weight + `file:line`), grouped and `--json`-able for
+  CI, covering color/geometry/components/motion/copy/honesty/accessibility.
+  Deepens the anti-slop evidence from a handful of heuristics to a real rule set.
 
 ## Current limitations (roadmap)
 
 1. **Single-platform packaging.** Installation is documented and guaranteed for
    Claude Code only. Manual use is possible elsewhere, but official adapters for
    Cursor, Codex, OpenCode and Gemini CLI are not yet packaged.
-2. **Partial automation of anti-slop.** `slop-lint.mjs` provides evidence, but
-   final judgment is still the agent's; false positives/negatives are expected.
+2. **Anti-slop is evidence, not verdict.** `slop-lint.mjs` is now a ~25-rule
+   deterministic engine, but final judgment is still the agent's; false
+   positives/negatives are expected and a shared choice can be product-appropriate.
 3. **Scoring is anchored, not fully computed.** Contrast, distribution, state
    accessibility, performance and viewport checks are measurable; harmony,
    identity coherence and narrative remain judgment calls (with required
@@ -93,9 +98,9 @@ modules (see `examples/service-booking/`).
 - File-based project memory makes decisions explicit and re-auditable.
 - Real states (empty/error/loading/extreme) are first-class.
 
-## Scorecard (v0.8.0)
+## Scorecard (v0.9.0)
 
-| Dimension | v0.1.0 | v0.8.0 | Note |
+| Dimension | v0.1.0 | v0.9.0 | Note |
 |---|---|---|---|
 | Method & philosophy | 9/10 | 9/10 | Unchanged strength |
 | Stage coverage | 8/10 | 8/10 | Profiles + gate scope by profile |
@@ -111,7 +116,7 @@ modules (see `examples/service-booking/`).
 
 v0.1.0 was **a strong methodology trying to present itself as a skill.**
 
-v0.8.0 is **a functional early-stage skill** — installable on Claude Code, with
+v0.9.0 is **a functional early-stage skill** — installable on Claude Code, with
 its own methodology, project memory, profile-scoped gates, anchored rubrics,
 ready prompts, two worked examples, and validation tooling that now includes a
 **behavioral smoke gate** (the page must actually run before it can be

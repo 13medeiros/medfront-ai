@@ -14,10 +14,11 @@ convergence, and a **runtime smoke check** that blocks *certified-but-broken*.
 `inspect`, `smoke`, `certify`) or **run a profile** for the whole arc — see the
 command palette in [`COMMANDS.md`](./COMMANDS.md).
 
-> Status: `v0.8.0` — **experimental / early release.** Installable Claude Code
+> Status: `v0.9.0` — **experimental / early release.** Installable Claude Code
 > skill: a directable command palette, measured quality modules, six tested
-> tools (contrast, screenshots, benchmark, slop-lint, convergence, runtime
-> smoke), ready-to-paste prompts and two worked examples. See
+> tools (contrast, screenshots, benchmark, a **~25-rule deterministic slop
+> detector**, convergence, runtime smoke), ready-to-paste prompts and two worked
+> examples. See
 > [`QUICK_START.md`](./QUICK_START.md), [`CHANGELOG.md`](./CHANGELOG.md) and
 > [`EVALUATION.md`](./EVALUATION.md).
 

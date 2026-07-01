@@ -47,14 +47,17 @@ For each issue, report evidence, score contribution, impact and correction. Reca
 
 ## Tooling
 
-Run the heuristic linter for evidence first, then judge:
+Run the deterministic linter (~25 rules, no LLM) for evidence first, then judge:
 
 ```bash
-node scripts/slop-lint.mjs src
+node scripts/slop-lint.mjs src              # grouped report + estimate
+node scripts/slop-lint.mjs src --max 30     # exit 1 if estimate > 30 (CI gate)
+node scripts/slop-lint.mjs src --json       # machine-readable for PR checks
 ```
 
-It flags repeated container shells, uniform radius/shadow, gradients (especially
-purple-blue), repeated animation, clichés and unmarked metrics/testimonials with
-`file:line` and an advisory contribution. Treat it as input to the Slop Score,
-not a verdict — confirm each finding. Use `references/scoring-rubric.md` for the
+Each finding carries a rule id (`GRAD-01` purple-blue gradient, `GLASS-01`
+glassmorphism, `ORB-01` glow blob, `SHELL-01` copy-pasted card, `ICON-01`
+repeated icon chip, `CLAIM-01` unmarked metric, `A11Y-01` img without alt, …),
+a weight and `file:line` evidence, grouped by category. Treat it as input to the
+Slop Score, not a verdict — confirm each finding. Use `references/scoring-rubric.md` for the
 bands so two runs agree.

@@ -3,6 +3,24 @@
 All notable changes to MedFront AI are documented here.
 This project aims to follow [Semantic Versioning](https://semver.org/).
 
+## [0.9.0] — 2026-07-01
+
+A real deterministic slop detector.
+
+### Changed
+- **`scripts/slop-lint.mjs` rewritten as a ~25-rule engine** (no LLM). Rules
+  carry an id, category and weight, with `file:line` evidence, grouped into
+  Color, Geometry, Components, Motion, Copy, Honesty and Accessibility. New
+  detections include gradient text, glassmorphism, glow orbs, repeated icon
+  chips, repeated card grids, generic CTAs, decorative emoji, `<img>` without
+  alt, `onClick` on non-interactive elements, positive tabindex and `<html>`
+  without lang.
+- **`--json` output** for CI / PR checks; the emoji rule no longer flags plain
+  UI glyphs like `★`.
+- Validated: a real app scores ~12 ("strong identity"), an adversarial fixture
+  ~76 ("severe AI slop") firing 15 rules.
+- `commands/anti-slop.md` and `scripts/README.md` document the rule set.
+
 ## [0.8.0] — 2026-07-01
 
 Positioning: a sharp pitch and a directable command palette.

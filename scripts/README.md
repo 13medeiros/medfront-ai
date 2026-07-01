@@ -47,18 +47,25 @@ Runs Lighthouse, records environment/command/date, prints
 metric/result/target/status and the largest opportunities. Exits 1 if a gated
 metric is below target.
 
-## `slop-lint.mjs` — heuristic slop detector (anti-slop)
+## `slop-lint.mjs` — deterministic slop detector (anti-slop)
+
+~25 rules, no LLM. No dependencies.
 
 ```bash
-node slop-lint.mjs src                 # scan a source dir (no dependencies)
-node slop-lint.mjs src --max 30        # exit 1 if estimated contribution > 30
+node slop-lint.mjs src                 # grouped report + estimate
+node slop-lint.mjs src --max 30        # exit 1 if estimate > 30 (CI gate)
+node slop-lint.mjs src --json          # machine-readable for PR checks
 node slop-lint.mjs . --ext .tsx,.css   # custom extensions
 ```
 
-Flags repeated container shells, uniform radius/shadow, gradients (especially
-purple-blue), repeated animation, clichés and unmarked metrics/testimonials —
-with `file:line` and an advisory Slop contribution. It is **evidence, not a
-verdict**: confirm each finding in the anti-slop stage.
+Rules span **Color** (purple-blue gradient, gradient text, glassmorphism, glow
+orbs, raw hex), **Geometry** (uniform radius/shadow, copy-pasted card shells,
+repeated card grids), **Components** (repeated icon chips), **Motion** (identical
+repeated reveals, pulse/bounce overuse), **Copy** (clichés, generic CTAs, lorem,
+decorative emoji), **Honesty** (unmarked metrics/testimonials) and
+**Accessibility** (img without alt, onClick on non-interactive elements, positive
+tabindex, `<html>` without lang). Each finding has a rule id, weight and
+`file:line`. **Evidence, not a verdict** — confirm each in the anti-slop stage.
 
 ## `identity-fingerprint.mjs` — cross-project convergence (compare)
 
