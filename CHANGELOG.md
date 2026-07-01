@@ -3,6 +3,20 @@
 All notable changes to MedFront AI are documented here.
 This project aims to follow [Semantic Versioning](https://semver.org/).
 
+## [0.6.0] — 2026-07-01
+
+A second example, in the opposite mode — proving the method produces distinct
+identities.
+
+### Added
+- **`examples/reflex-game/`** — a PLAYFUL reflex toy (dependency-free
+  HTML/CSS/JS in `src/`) with its memory files and case study. Dark, saturated
+  and springy — the opposite of the calm editorial booking example.
+- The two examples are validated as **distinct** by `identity-fingerprint`
+  (~37% — DISTINCT: fonts, radius and shadow diverge; only a near-white text
+  token and a transform primitive overlap), demonstrating that the method does
+  not recycle one house style.
+
 ## [0.5.0] — 2026-07-01
 
 Onboarding: get from installed to producing in a minute.
