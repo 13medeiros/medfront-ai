@@ -3,6 +3,27 @@
 All notable changes to MedFront AI are documented here.
 This project aims to follow [Semantic Versioning](https://semver.org/).
 
+## [0.3.0] — 2026-07-01
+
+Practicality and automated evidence; fixes a documentation contradiction.
+
+### Added
+- **Usage profiles** in `SKILL.md` (`QUICK` / `STANDARD` / `FULL` / `AUDIT`) so
+  the 18-step method scales down for reviews, fixes and audits.
+- **`scripts/slop-lint.mjs`** — heuristic slop detector (repeated shells,
+  uniform radius/shadow, gradients incl. purple-blue, repeated animation,
+  clichés, unmarked metrics/testimonials). Tuned against real and adversarial
+  inputs for low false positives; advisory input to the Slop Score.
+- Wired `slop-lint` into `commands/anti-slop.md`, `SKILL.md` and `scripts/README.md`.
+
+### Changed
+- **`EVALUATION.md` rewritten** — it previously described v0.1.0 gaps as if
+  still open, contradicting the v0.2.0 README. It now marks resolved items and
+  focuses on current limitations.
+- `README.md` — marked **experimental / early release** and clarified that
+  install is guaranteed for Claude Code only; other-platform adapters are in
+  development.
+
 ## [0.2.0] — 2026-07-01
 
 Turns the framework into an installable, measurable skill.

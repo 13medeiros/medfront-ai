@@ -47,7 +47,14 @@ For each issue, report evidence, score contribution, impact and correction. Reca
 
 ## Tooling
 
-Use `references/scoring-rubric.md` for the Slop Score bands so two runs agree.
-Some signals are mechanically checkable — e.g. repeated identical card grids,
-uniform radius/border across components, or a purple-blue gradient — and should
-be cited with the exact file and line, not asserted.
+Run the heuristic linter for evidence first, then judge:
+
+```bash
+node scripts/slop-lint.mjs src
+```
+
+It flags repeated container shells, uniform radius/shadow, gradients (especially
+purple-blue), repeated animation, clichés and unmarked metrics/testimonials with
+`file:line` and an advisory contribution. Treat it as input to the Slop Score,
+not a verdict — confirm each finding. Use `references/scoring-rubric.md` for the
+bands so two runs agree.
