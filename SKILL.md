@@ -11,7 +11,7 @@ description: >-
   certify) with reproducible, evidence-based scoring.
 license: MIT
 metadata:
-  version: 0.4.0
+  version: 0.4.1
 ---
 
 # MedFront AI
@@ -121,9 +121,11 @@ local Chrome/Edge (auto-detected). `benchmark.mjs` shells out to
 command when a tool is unavailable — report the limitation, do not invent
 numbers.
 
-## Certification gates
+## Full-product certification gates
 
-Do not certify when any holds:
+Apply these according to the **profile scope** above: AUDIT and FULL apply them
+all; STANDARD applies them to the touched scope; QUICK does not produce
+full-product certification. Do not certify when any holds:
 
 - an unresolved `P0` or `P1` finding;
 - Color Score below 75 (see `commands/chroma.md`);

@@ -70,7 +70,7 @@ modules (see `examples/service-booking/`).
 - File-based project memory makes decisions explicit and re-auditable.
 - Real states (empty/error/loading/extreme) are first-class.
 
-## Scorecard (v0.3.0)
+## Scorecard (v0.4.0)
 
 | Dimension | v0.1.0 | v0.4.0 | Note |
 |---|---|---|---|

@@ -9,7 +9,7 @@ product truth, picks an experience mode, builds an identity and color system,
 designs a signature moment, implements the interface, and validates it against
 real states, multiple viewports, measured performance and anti-slop criteria.
 
-> Status: `v0.4.0` — **experimental / early release.** Installable Claude Code
+> Status: `v0.4.1` — **experimental / early release.** Installable Claude Code
 > skill with measurable quality modules, tested tooling, an automated slop
 > linter and a cross-project convergence check. See [`CHANGELOG.md`](./CHANGELOG.md)
 > and [`EVALUATION.md`](./EVALUATION.md).
@@ -82,7 +82,7 @@ See a filled set in [`examples/service-booking/`](./examples/service-booking).
 | [`chroma`](./commands/chroma.md) | Color system + **Color Score** | ≥ 75/100 |
 | [`benchmark`](./commands/benchmark.md) | Lighthouse / Web Vitals evidence | Perf ≥ 80, A11y ≥ 90 |
 | [`anti-slop`](./commands/anti-slop.md) | Genericity audit + **Slop Score** | ≤ 30/100 |
-| [`compare`](./commands/compare.md) | Principle-based version/reference diff | — |
+| [`compare`](./commands/compare.md) | Version/reference diff + cross-project identity convergence | — |
 
 Scores are made reproducible by the anchored rubric in
 [`references/scoring-rubric.md`](./references/scoring-rubric.md).
@@ -96,11 +96,13 @@ Deterministic scripts so the gates have instruments — see
 node scripts/contrast.mjs "#232019 on #f3efe7"          # WCAG contrast
 node scripts/shots.mjs --base http://localhost:3000     # 6 required viewports
 node scripts/benchmark.mjs --url http://localhost:3000  # Lighthouse report
-node scripts/slop-lint.mjs src                          # AI-slop evidence
-node scripts/identity-fingerprint.mjs src --vs ../other # cross-project convergence
+node scripts/slop-lint.mjs src --max 30                          # AI-slop evidence (gate at 30)
+node scripts/identity-fingerprint.mjs src --vs ../other --max 60 # convergence (gate at 60)
 ```
 
-All exit non-zero on failure (usable in CI). `contrast.mjs`, `slop-lint.mjs`
+Gate-oriented scripts (`contrast`, `shots`, `benchmark`) exit non-zero on
+failure; the advisory `slop-lint` and `identity-fingerprint` exit non-zero only
+with a `--max` threshold — so all are CI-usable. `contrast.mjs`, `slop-lint.mjs`
 and `identity-fingerprint.mjs` have no dependencies; `shots.mjs` needs
 `puppeteer-core` + local Chrome/Edge; `benchmark.mjs` shells out to
 `npx lighthouse`.
