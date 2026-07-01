@@ -47,6 +47,19 @@ Runs Lighthouse, records environment/command/date, prints
 metric/result/target/status and the largest opportunities. Exits 1 if a gated
 metric is below target.
 
+## `slop-lint.mjs` — heuristic slop detector (anti-slop)
+
+```bash
+node slop-lint.mjs src                 # scan a source dir (no dependencies)
+node slop-lint.mjs src --max 30        # exit 1 if estimated contribution > 30
+node slop-lint.mjs . --ext .tsx,.css   # custom extensions
+```
+
+Flags repeated container shells, uniform radius/shadow, gradients (especially
+purple-blue), repeated animation, clichés and unmarked metrics/testimonials —
+with `file:line` and an advisory Slop contribution. It is **evidence, not a
+verdict**: confirm each finding in the anti-slop stage.
+
 ## Platform note
 
 On **Git Bash (Windows)** prefix commands with `MSYS_NO_PATHCONV=1` so route

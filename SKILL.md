@@ -11,7 +11,7 @@ description: >-
   certify) with reproducible, evidence-based scoring.
 license: MIT
 metadata:
-  version: 0.2.0
+  version: 0.3.0
 ---
 
 # MedFront AI
@@ -57,6 +57,21 @@ loop back when a gate fails (e.g. inspect → fix → re-inspect).
 14. `inspect` · 15. `reinforce` · 16. `simplify`/`amplify`/`calm` ·
 17. `tune` · 18. `certify`.
 
+## Usage profiles
+
+Right-size the method to the task — do not always run all 18 steps. Announce
+which profile you are using.
+
+| Profile | Use for | Steps |
+|---|---|---|
+| **QUICK** | Review a screen, fix responsiveness, audit one component | `inspect` → `tune` |
+| **STANDARD** | Build a focused feature or page | `foundation` → `direction` → `identity` → `chroma` → `build` → `reflow` → `motion` → `inspect` → `reinforce` → `certify` |
+| **AUDIT** | Evaluate or retrofit an existing UI | `foundation` (reconstruct context) → `chroma` → `benchmark` → `anti-slop` → `inspect` → `certify` |
+| **FULL** | A complete, ambitious build from scratch | all 18 steps |
+
+The certification gates apply to every profile: never certify with an open
+P0/P1 or a failing Color/Slop/performance gate.
+
 ## Resources — load on demand (progressive disclosure)
 
 Keep this file small; open the detailed resource only at the relevant step.
@@ -84,8 +99,9 @@ scripts instead of estimating — and never fabricate results.
 | Contrast (chroma / inspect) | `scripts/contrast.mjs` | `node scripts/contrast.mjs "#232019 on #f3efe7"` |
 | 6-viewport screenshots | `scripts/shots.mjs` | `node scripts/shots.mjs --base http://localhost:3000 --out ./screenshots` |
 | Performance & a11y (benchmark) | `scripts/benchmark.mjs` | `node scripts/benchmark.mjs --url http://localhost:3000` |
+| Slop evidence (anti-slop) | `scripts/slop-lint.mjs` | `node scripts/slop-lint.mjs src` |
 
-`contrast.mjs` needs no dependencies. `shots.mjs` needs `puppeteer-core` and a
+`contrast.mjs` and `slop-lint.mjs` need no dependencies. `shots.mjs` needs `puppeteer-core` and a
 local Chrome/Edge (auto-detected). `benchmark.mjs` shells out to
 `npx lighthouse`. Each script degrades gracefully and prints a reproducible
 command when a tool is unavailable — report the limitation, do not invent

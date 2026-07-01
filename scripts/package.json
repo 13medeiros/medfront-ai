@@ -1,6 +1,6 @@
 {
   "name": "medfront-ai-scripts",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "type": "module",
   "description": "Deterministic validation tools for the MedFront AI skill (contrast, viewport screenshots, benchmark).",

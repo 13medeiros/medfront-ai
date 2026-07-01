@@ -9,8 +9,9 @@ product truth, picks an experience mode, builds an identity and color system,
 designs a signature moment, implements the interface, and validates it against
 real states, multiple viewports, measured performance and anti-slop criteria.
 
-> Status: `v0.2.0` — installable skill with measurable quality modules and
-> tested tooling. See [`CHANGELOG.md`](./CHANGELOG.md) and [`EVALUATION.md`](./EVALUATION.md).
+> Status: `v0.3.0` — **experimental / early release.** Installable Claude Code
+> skill with measurable quality modules, tested tooling and an automated slop
+> linter. See [`CHANGELOG.md`](./CHANGELOG.md) and [`EVALUATION.md`](./EVALUATION.md).
 
 ## Why it's different
 
@@ -44,6 +45,11 @@ Optional — enable the screenshot script:
 ```bash
 cd ~/.claude/skills/medfront-ai/scripts && npm install   # puppeteer-core
 ```
+
+> Installable as a Claude Code skill today. It can be used manually elsewhere,
+> but official adapters for **Cursor, Codex, OpenCode and Gemini CLI are in
+> development** — the method, commands and scripts are portable; only the
+> install/invoke glue differs.
 
 ## Use
 
