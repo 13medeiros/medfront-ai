@@ -48,6 +48,8 @@ Compare versions or references using hierarchy, rhythm, density, contrast, ident
 ## `inspect`
 Find defects in usability, accessibility, responsiveness, performance, state handling, code structure, visual consistency and generic design patterns. Return findings as `P0` through `P3`, each with evidence, impact, correction and validation.
 
+**Run it first:** `node scripts/smoke.mjs <src-or-url>`. Actually open the built experience — a console error / uncaught exception, or a primary interaction that does not change state (stuck), is a `P0`. Static scores never substitute for running the page.
+
 ## `reinforce`
 Test long names, translations, missing data, errors, offline states, broken media, slow requests, extreme values, loading and empty states.
 
@@ -64,4 +66,4 @@ Reduce competition, intensity and movement while preserving identity and hierarc
 Refine spacing, line breaks, optical alignment, color distribution, motion timing, hover, focus, loading transitions and microcopy.
 
 ## `certify`
-Run the final assessment against `QUALITY.md`. Do not certify with unresolved `P0` or `P1` findings, Color Score below 75, Slop Score above 30, missing mobile validation or benchmark claims without evidence.
+Run the final assessment against `QUALITY.md`. **Begin by proving the core loop runs** — `node scripts/smoke.mjs <src-or-url>` must pass — before looking at any score. **Paste** the tool outputs (contrast, benchmark, identity-fingerprint, smoke), do not summarize them. Do not certify with unresolved `P0` or `P1` findings, a failing/absent smoke, Color Score below 75, Slop Score above 30, missing mobile validation, or benchmark claims without evidence. Verification that could not run means *not certified — verification incomplete*, never *certified with a note*.
