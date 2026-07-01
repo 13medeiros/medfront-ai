@@ -1,6 +1,6 @@
 {
   "name": "medfront-ai-scripts",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "private": true,
   "type": "module",
   "description": "Deterministic validation tools for the MedFront AI skill (contrast, screenshots, benchmark, slop-lint, identity-fingerprint, smoke).",

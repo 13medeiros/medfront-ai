@@ -49,7 +49,7 @@ metric is below target.
 
 ## `slop-lint.mjs` — deterministic frontend auditor (anti-slop)
 
-~35 rules, no LLM. No dependencies.
+37 rules, no LLM. No dependencies.
 
 ```bash
 node slop-lint.mjs src                 # four-result report

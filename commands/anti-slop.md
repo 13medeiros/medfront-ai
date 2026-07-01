@@ -47,7 +47,7 @@ For each issue, report evidence, score contribution, impact and correction. Reca
 
 ## Tooling
 
-Run the deterministic linter (~35 rules, no LLM) for evidence first, then judge:
+Run the deterministic linter (37 rules, no LLM) for evidence first, then judge:
 
 ```bash
 node scripts/slop-lint.mjs src              # four-result report
