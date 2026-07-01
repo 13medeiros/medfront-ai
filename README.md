@@ -1,19 +1,25 @@
-# MedFront AI
+# MedFront AI — direct the design, then prove it
 
-**A frontend skill for AI coding agents.** It turns product context and
-references into distinctive, accessible, responsive and production-oriented
-frontend work — and it *measures* the result instead of just claiming quality.
+**The frontend skill for AI coding agents that won't hand you generic slop — or
+certify what it never actually ran.**
 
-MedFront AI does not start with components or decorative effects. It establishes
-product truth, picks an experience mode, builds an identity and color system,
-designs a signature moment, implements the interface, and validates it against
-real states, multiple viewports, measured performance and anti-slop criteria.
+AI ships frontends that all look the same, and that nobody opened: purple-blue
+gradients, identical card grids, green scores, broken in the browser. MedFront
+gives your agent a **product-first method** to make the UI distinctive (concept
+before components, a real color system, real states, accessibility) and
+**measured gates it can't fake** — contrast, benchmark, cross-project
+convergence, and a **runtime smoke check** that blocks *certified-but-broken*.
 
-> Status: `v0.7.0` — **experimental / early release.** Installable Claude Code
-> skill with measurable quality modules, tested tooling (contrast, screenshots,
-> benchmark, slop-lint, convergence and a **runtime smoke gate**), ready-to-paste
-> prompts and two worked examples. See [`QUICK_START.md`](./QUICK_START.md),
-> [`CHANGELOG.md`](./CHANGELOG.md) and [`EVALUATION.md`](./EVALUATION.md).
+**Pull one command** when you need a discipline (`chroma`, `motion`, `anti-slop`,
+`inspect`, `smoke`, `certify`) or **run a profile** for the whole arc — see the
+command palette in [`COMMANDS.md`](./COMMANDS.md).
+
+> Status: `v0.8.0` — **experimental / early release.** Installable Claude Code
+> skill: a directable command palette, measured quality modules, six tested
+> tools (contrast, screenshots, benchmark, slop-lint, convergence, runtime
+> smoke), ready-to-paste prompts and two worked examples. See
+> [`QUICK_START.md`](./QUICK_START.md), [`CHANGELOG.md`](./CHANGELOG.md) and
+> [`EVALUATION.md`](./EVALUATION.md).
 
 ## Why it's different
 
@@ -126,9 +132,9 @@ benchmark value.
 ## Repository structure
 
 ```
-SKILL.md            references/       scripts/         examples/
-commands/           templates/        prompts/         QUICK_START.md
-LICENSE             CHANGELOG.md
+SKILL.md            COMMANDS.md       QUICK_START.md   scripts/
+commands/           references/       templates/       prompts/
+examples/           LICENSE           CHANGELOG.md
 ```
 
 ## Versioning, license, contributing
