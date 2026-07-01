@@ -57,8 +57,9 @@ modules (see `examples/service-booking/`).
    accessibility, performance and viewport checks are measurable; harmony,
    identity coherence and narrative remain judgment calls (with required
    evidence).
-4. **One example.** A second, different-mode example (e.g. a CINEMATIC or
-   PLAYFUL piece) would broaden calibration.
+4. **Two examples** (COMMERCE booking + PLAYFUL reflex toy). A third in another
+   mode (e.g. CINEMATIC, or a heavier UTILITY tool) would broaden calibration
+   further.
 5. **No CI recipe.** The scripts exit non-zero on failure but there is no
    provided workflow file wiring them into a pipeline yet.
 
@@ -92,5 +93,5 @@ v0.4.0 is **a functional early-stage skill** — installable on Claude Code, wit
 its own methodology, project memory, profile-scoped gates, anchored rubrics and
 real validation tooling (contrast, viewport, benchmark, slop and cross-project
 convergence). It is ready to share as an **experimental / early release**. The
-next level is multi-platform packaging, deeper automation of the judgment
-scores, and more examples (a second, different-mode piece).
+next level is multi-platform packaging (a Cursor adapter first) and deeper
+automation of the judgment scores.

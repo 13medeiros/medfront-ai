@@ -9,7 +9,7 @@ product truth, picks an experience mode, builds an identity and color system,
 designs a signature moment, implements the interface, and validates it against
 real states, multiple viewports, measured performance and anti-slop criteria.
 
-> Status: `v0.5.0` — **experimental / early release.** Installable Claude Code
+> Status: `v0.6.0` — **experimental / early release.** Installable Claude Code
 > skill with measurable quality modules, tested tooling, an automated slop
 > linter, a cross-project convergence check, and ready-to-paste prompts. See
 > [`QUICK_START.md`](./QUICK_START.md), [`CHANGELOG.md`](./CHANGELOG.md) and

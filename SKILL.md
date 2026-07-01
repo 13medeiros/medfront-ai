@@ -11,7 +11,7 @@ description: >-
   certify) with reproducible, evidence-based scoring.
 license: MIT
 metadata:
-  version: 0.5.0
+  version: 0.6.0
 ---
 
 # MedFront AI

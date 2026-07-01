@@ -1,7 +1,9 @@
 # Examples
 
 Real, filled-in artifacts that show the depth MedFront AI expects — not empty
-skeletons. Use them to calibrate what "good" looks like.
+skeletons. Use them to calibrate what "good" looks like. Two examples in
+opposite modes (COMMERCE and PLAYFUL) show the method producing **different
+identities per product**, not one recycled style.
 
 ## `service-booking/` — two-sided autonomous-services booking app
 
@@ -26,3 +28,17 @@ measured from 88 → 100 after fixing contrast and list markup.
 > These are the decision artifacts the skill produces. The full application
 > code for this example lives in its own project; here we ship the memory files
 > and audits, which are what MedFront AI is responsible for.
+
+## `reflex-game/` — a PLAYFUL reflex toy
+
+The opposite mode: dark, saturated, springy. A dependency-free HTML/CSS/JS toy
+(`src/`) plus its memory files and a case study.
+
+| File | What it demonstrates |
+|---|---|
+| [`IDENTITY.md`](./reflex-game/IDENTITY.md) · [`MOTION.md`](./reflex-game/MOTION.md) | PLAYFUL grammar — chunky rounded shapes, springy overshoot (bounce is *correct* here), state colors always paired with labels |
+| [`PRODUCT.md`](./reflex-game/PRODUCT.md) · [`QUALITY.md`](./reflex-game/QUALITY.md) | a tiny product with five real states and full keyboard + reduced-motion support |
+| [`CASE_STUDY.md`](./reflex-game/CASE_STUDY.md) | mode contrast with `service-booking` and a **measured** distinctness check (identity-fingerprint: ~37% — DISTINCT) |
+| `src/` | real, runnable code (open `src/index.html`) — so the convergence tool has something to diff |
+
+Run it by opening `reflex-game/src/index.html` in a browser — no build.

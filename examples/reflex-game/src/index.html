@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Reflexo — teste seu reflexo</title>
+    <meta name="description" content="Toque no verde o mais rápido que puder. Um brinquedo de reflexo — exemplo PLAYFUL da metodologia MedFront AI." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="stage">
+      <header class="head">
+        <h1 class="logo">Reflexo<span aria-hidden="true">⚡</span></h1>
+        <p class="tagline">Toque no verde. Rápido.</p>
+      </header>
+
+      <!-- O pad é o produto: um alvo grande e tocável -->
+      <button id="pad" class="pad" data-state="idle" aria-describedby="hint">
+        <span class="pad__label" id="padLabel">Toque para começar</span>
+        <span class="pad__sub" id="padSub"></span>
+      </button>
+
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+
+      <footer class="foot">
+        <p class="best">
+          Melhor: <strong id="best">—</strong>
+        </p>
+        <p id="hint" class="hint">
+          Toque, clique ou aperte <kbd>espaço</kbd>. Espere ficar verde — se
+          tocar cedo, recomeça.
+        </p>
+      </footer>
+
+      <p class="demo">Exemplo PLAYFUL — metodologia MedFront AI (demonstração).</p>
+    </main>
+    <script src="./main.js"></script>
+  </body>
+</html>
