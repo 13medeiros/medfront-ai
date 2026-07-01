@@ -47,17 +47,27 @@ For each issue, report evidence, score contribution, impact and correction. Reca
 
 ## Tooling
 
-Run the deterministic linter (~25 rules, no LLM) for evidence first, then judge:
+Run the deterministic linter (~35 rules, no LLM) for evidence first, then judge:
 
 ```bash
-node scripts/slop-lint.mjs src              # grouped report + estimate
-node scripts/slop-lint.mjs src --max 30     # exit 1 if estimate > 30 (CI gate)
+node scripts/slop-lint.mjs src              # four-result report
+node scripts/slop-lint.mjs src --max 30     # exit 1 if Slop > 30 or a honesty blocker
 node scripts/slop-lint.mjs src --json       # machine-readable for PR checks
 ```
 
-Each finding carries a rule id (`GRAD-01` purple-blue gradient, `GLASS-01`
-glassmorphism, `ORB-01` glow blob, `SHELL-01` copy-pasted card, `ICON-01`
-repeated icon chip, `CLAIM-01` unmarked metric, `A11Y-01` img without alt, …),
-a weight and `file:line` evidence, grouped by category. Treat it as input to the
-Slop Score, not a verdict — confirm each finding. Use `references/scoring-rubric.md` for the
+**Not everything it finds is slop** — it reports **four separate results**, each
+feeding a different gate:
+
+- **Visual Slop score** (Color/Geometry/Components/Motion/Copy/Structure) — the
+  aesthetic gate, ≤ 30.
+- **Honesty** (`CLAIM-01/02`, unmarked metrics/testimonials) — a **P1
+  certification blocker**, never just a slop number.
+- **Accessibility** (`A11Y-*`) — feeds the accessibility gate, not the Slop score.
+- **Hygiene** (`HYG-*`, console.log / TODO) — advisory warnings, non-blocking.
+
+Each finding has a rule id, weight, **confidence** (high/medium/low) and
+`file:line`. Contributions **saturate** by count (1 occurrence = 50% of weight).
+Suppress a real false positive with a justified comment — reported, never
+silent: `// medfront-ignore GRAD-02 -- brand gradient, intentional`. Confirm
+each finding. Use `references/scoring-rubric.md` for the
 bands so two runs agree.
