@@ -9,10 +9,11 @@ product truth, picks an experience mode, builds an identity and color system,
 designs a signature moment, implements the interface, and validates it against
 real states, multiple viewports, measured performance and anti-slop criteria.
 
-> Status: `v0.4.1` — **experimental / early release.** Installable Claude Code
+> Status: `v0.5.0` — **experimental / early release.** Installable Claude Code
 > skill with measurable quality modules, tested tooling, an automated slop
-> linter and a cross-project convergence check. See [`CHANGELOG.md`](./CHANGELOG.md)
-> and [`EVALUATION.md`](./EVALUATION.md).
+> linter, a cross-project convergence check, and ready-to-paste prompts. See
+> [`QUICK_START.md`](./QUICK_START.md), [`CHANGELOG.md`](./CHANGELOG.md) and
+> [`EVALUATION.md`](./EVALUATION.md).
 
 ## Why it's different
 
@@ -51,6 +52,13 @@ cd ~/.claude/skills/medfront-ai/scripts && npm install   # puppeteer-core
 > but official adapters for **Cursor, Codex, OpenCode and Gemini CLI are in
 > development** — the method, commands and scripts are portable; only the
 > install/invoke glue differs.
+
+## Quick start
+
+New here? [`QUICK_START.md`](./QUICK_START.md) gets you producing in a minute.
+Ready-to-paste prompts — one per task and profile — live in
+[`prompts/`](./prompts): build a new project, audit an existing one, review one
+page, improve colors, or compare projects.
 
 ## Use
 
@@ -118,7 +126,8 @@ benchmark value.
 
 ```
 SKILL.md            references/       scripts/         examples/
-commands/           templates/        LICENSE          CHANGELOG.md
+commands/           templates/        prompts/         QUICK_START.md
+LICENSE             CHANGELOG.md
 ```
 
 ## Versioning, license, contributing

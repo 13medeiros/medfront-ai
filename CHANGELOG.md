@@ -3,6 +3,20 @@
 All notable changes to MedFront AI are documented here.
 This project aims to follow [Semantic Versioning](https://semver.org/).
 
+## [0.5.0] — 2026-07-01
+
+Onboarding: get from installed to producing in a minute.
+
+### Added
+- **`QUICK_START.md`** — install → pick a prompt → run, with a task→profile map
+  and a pointer to the worked example.
+- **`prompts/`** — five ready-to-paste, `<placeholder>`-driven prompts, each
+  tied to a profile and the right scripts:
+  `build-new-project` (FULL/STANDARD), `audit-existing-project` (AUDIT),
+  `review-one-page` (QUICK), `improve-colors` (chroma),
+  `compare-projects` (compare).
+- README "Quick start" section and a `prompts/*` entry in the SKILL resource map.
+
 ## [0.4.1] — 2026-07-01
 
 Documentation and CI-semantics fixes from a v0.4.0 review.
