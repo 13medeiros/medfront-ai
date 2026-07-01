@@ -11,7 +11,7 @@ description: >-
   certify) with reproducible, evidence-based scoring.
 license: MIT
 metadata:
-  version: 0.4.1
+  version: 0.5.0
 ---
 
 # MedFront AI
@@ -98,6 +98,7 @@ Keep this file small; open the detailed resource only at the relevant step.
 | `compare` | `commands/compare.md` |
 | `reference` / studying craft | `references/premium-experience-principles.md` |
 | Creating memory files | `templates/*.template.md` |
+| Starting from a ready prompt | `QUICK_START.md`, `prompts/*.md` |
 
 > Single source of truth: per-command rules live in `commands/`. This file
 > orchestrates; it does not restate them.
