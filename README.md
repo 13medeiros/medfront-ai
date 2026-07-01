@@ -9,9 +9,10 @@ product truth, picks an experience mode, builds an identity and color system,
 designs a signature moment, implements the interface, and validates it against
 real states, multiple viewports, measured performance and anti-slop criteria.
 
-> Status: `v0.3.0` — **experimental / early release.** Installable Claude Code
-> skill with measurable quality modules, tested tooling and an automated slop
-> linter. See [`CHANGELOG.md`](./CHANGELOG.md) and [`EVALUATION.md`](./EVALUATION.md).
+> Status: `v0.4.0` — **experimental / early release.** Installable Claude Code
+> skill with measurable quality modules, tested tooling, an automated slop
+> linter and a cross-project convergence check. See [`CHANGELOG.md`](./CHANGELOG.md)
+> and [`EVALUATION.md`](./EVALUATION.md).
 
 ## Why it's different
 
@@ -95,11 +96,14 @@ Deterministic scripts so the gates have instruments — see
 node scripts/contrast.mjs "#232019 on #f3efe7"          # WCAG contrast
 node scripts/shots.mjs --base http://localhost:3000     # 6 required viewports
 node scripts/benchmark.mjs --url http://localhost:3000  # Lighthouse report
+node scripts/slop-lint.mjs src                          # AI-slop evidence
+node scripts/identity-fingerprint.mjs src --vs ../other # cross-project convergence
 ```
 
-All exit non-zero on failure (usable in CI). `contrast.mjs` has no
-dependencies; `shots.mjs` needs `puppeteer-core` + local Chrome/Edge;
-`benchmark.mjs` shells out to `npx lighthouse`.
+All exit non-zero on failure (usable in CI). `contrast.mjs`, `slop-lint.mjs`
+and `identity-fingerprint.mjs` have no dependencies; `shots.mjs` needs
+`puppeteer-core` + local Chrome/Edge; `benchmark.mjs` shells out to
+`npx lighthouse`.
 
 ## Certification gates
 
@@ -118,5 +122,6 @@ commands/           templates/        LICENSE          CHANGELOG.md
 ## Versioning, license, contributing
 
 Semantic Versioning (see `CHANGELOG.md`). Licensed under [MIT](./LICENSE).
-Issues and PRs welcome — the roadmap (anchored rubrics everywhere, a slop
-linter, a memory-file validator, more examples) is in `EVALUATION.md`.
+Issues and PRs welcome — the roadmap (broader `slop-lint` coverage and fewer
+false positives, deeper score automation, a memory-file validator, more
+examples and platform adapters) is in `EVALUATION.md`.
