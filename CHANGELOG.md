@@ -3,6 +3,25 @@
 All notable changes to MedFront AI are documented here.
 This project aims to follow [Semantic Versioning](https://semver.org/).
 
+## [0.11.0] — 2026-07-01
+
+Motion — the skill can finally see animation, not just static frames.
+
+### Added
+- **`scripts/motion.mjs`** — a motion probe for the `motion`/`inspect` stages on
+  a live URL. It captures a **scroll filmstrip** (frames read as a sequence),
+  measures **FPS / jank** during a scripted scroll, checks **reduced-motion**
+  (with-vs-without pair), and detects **scroll-jacking** and animation libraries
+  (GSAP, ScrollTrigger, Lenis, Lottie, WebGL/three, AOS, Swiper…). `--json` for CI.
+- Wired into `commands/README.md` (`motion`), `COMMANDS.md`, `SKILL.md` and the
+  scripts docs. Seven tested tools now.
+
+### Why
+Every other tool captured static state — motion was the one dimension the skill
+was blind to, and it's the whole experience on animation-led sites. Validated on
+a heavy scroll-animation site (detected GSAP + ScrollTrigger, measured ~47fps /
+9% jank, and the filmstrip caught the choreographed reveal mid-motion).
+
 ## [0.10.1] — 2026-07-01
 
 Accuracy pass.
