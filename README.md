@@ -6,7 +6,7 @@ MedFront AI is a structured skill for AI coding agents. It helps transform produ
 
 ## What makes it different
 
-MedFront AI does not begin with components or decorative effects. It establishes product truth, selects an experience mode, creates an identity and movement language, defines a signature moment, implements the interface and validates it against real states and multiple viewport sizes.
+MedFront AI does not begin with components or decorative effects. It establishes product truth, selects an experience mode, creates an identity and color system, defines a signature moment, implements the interface and validates it against real states, multiple viewport sizes, measurable performance and anti-slop criteria.
 
 ## Experience modes
 
@@ -23,17 +23,39 @@ foundation
 → reference
 → direction
 → identity
+→ chroma
 → signature
 → sequence
 → build
 → reflow
 → motion
+→ benchmark
+→ anti-slop
+→ compare
 → inspect
 → reinforce
 → simplify / amplify / calm
 → tune
 → certify
 ```
+
+## New quality modules
+
+### Chroma
+
+Creates and validates palette harmony, temperature, saturation, distribution, semantic roles and contrast. The certification target is a Color Score of at least 75/100.
+
+### Benchmark
+
+Measures performance and accessibility with reproducible evidence. It covers Lighthouse, Web Vitals, JavaScript, transfer size, images, fonts, layout shifts and animation cost. Results must never be fabricated.
+
+### Anti-Slop
+
+Detects generic AI-generated visual and content patterns. The Slop Score ranges from 0 to 100, where lower is better. Certification requires 30 or less.
+
+### Compare
+
+Compares versions or references by hierarchy, rhythm, density, identity, clarity, accessibility and performance without optimizing for literal visual copying.
 
 ## Repository structure
 
@@ -59,15 +81,21 @@ Templates are available in the `templates` directory.
 
 - Concept before components.
 - Identity before effects.
+- Color roles before random palettes.
 - Narrative before scroll animation.
 - Mobile recomposition instead of simple shrinking.
 - Real states instead of perfect demo data.
+- Measured performance instead of unsupported claims.
 - Memorable interaction without losing usability.
 - Visual validation before completion.
 
+## Certification gates
+
+A project cannot be certified with unresolved critical findings, Color Score below 75, Slop Score above 30, performance or accessibility below the project minimum, missing mobile validation or benchmark values without reproducible evidence.
+
 ## Status
 
-This repository currently contains the initial MedFront AI framework. Commands, deterministic inspections, examples and integrations will evolve in future versions.
+This repository contains the initial MedFront AI framework and its first measurable quality modules. Deterministic inspection scripts, examples and integrations will evolve in future versions.
 
 ## License
 
