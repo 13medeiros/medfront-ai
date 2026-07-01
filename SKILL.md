@@ -9,7 +9,7 @@ description: >-
   quality. Guides work through staged commands
   (foundation → identity → chroma → build → benchmark → anti-slop → inspect →
   certify) with reproducible, evidence-based scoring.
-license: TBD
+license: MIT
 metadata:
   version: 0.2.0
 ---
