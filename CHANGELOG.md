@@ -3,6 +3,26 @@
 All notable changes to MedFront AI are documented here.
 This project aims to follow [Semantic Versioning](https://semver.org/).
 
+## [0.4.0] — 2026-07-01
+
+Profile-scoped gates, cross-project convergence detection, and doc fixes.
+
+### Added
+- **`scripts/identity-fingerprint.mjs`** — cross-project convergence check
+  across typography, palette, geometry, borders, shadow and motion. Answers
+  "did this identity come from the product, or was it reused by habit?" Wired
+  into `commands/compare.md`. Validated on two real projects (surfacing shared
+  paper palette, thin-border density and motion DNA while fonts/radius diverge).
+- **Gates by profile** in `SKILL.md`: QUICK yields a scoped "quick review
+  passed" (no full-product certification); STANDARD gates the touched
+  feature/page; AUDIT and FULL apply all gates.
+- **Read-and-verify** guidance: on existing projects, `foundation`/`identity`/
+  `chroma` are read, not recreated — keeping STANDARD light.
+
+### Fixed
+- README listed only three scripts in Tooling (slop-lint missing) and still
+  cited "a slop linter" as roadmap although it shipped in v0.3.0.
+
 ## [0.3.0] — 2026-07-01
 
 Practicality and automated evidence; fixes a documentation contradiction.

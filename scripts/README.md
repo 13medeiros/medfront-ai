@@ -60,6 +60,18 @@ purple-blue), repeated animation, clichés and unmarked metrics/testimonials —
 with `file:line` and an advisory Slop contribution. It is **evidence, not a
 verdict**: confirm each finding in the anti-slop stage.
 
+## `identity-fingerprint.mjs` — cross-project convergence (compare)
+
+```bash
+node identity-fingerprint.mjs src                    # print one fingerprint
+node identity-fingerprint.mjs src --vs ../other/src   # convergence report
+node identity-fingerprint.mjs a/src --vs b/src --max 60
+```
+
+Extracts typography, palette, geometry, borders, shadow, motion and layout, and
+(with `--vs`) reports per-dimension convergence plus the question: *did this
+identity come from the product, or was it reused by habit?* No dependencies.
+
 ## Platform note
 
 On **Git Bash (Windows)** prefix commands with `MSYS_NO_PATHCONV=1` so route

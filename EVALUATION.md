@@ -33,6 +33,19 @@ modules (see `examples/service-booking/`).
   clichés, unmarked fake metrics/testimonials). It informs the Slop Score; it
   does not replace visual judgment.
 
+## Added in v0.4.0
+
+- **Usage-profile gates** — QUICK produces a scoped "quick review passed" rather
+  than full-product certification; STANDARD gates the touched feature; AUDIT and
+  FULL gate everything. On existing projects, `foundation`/`identity`/`chroma`
+  are read-and-verified, not recreated.
+- **`scripts/identity-fingerprint.mjs`** — cross-project convergence check
+  (typography, palette, geometry, borders, shadow, motion). Answers "did this
+  identity come from the product, or was it reused by habit?" — automating the
+  comparison that previously had to be done by hand.
+- Fixed README inconsistencies (slop-lint missing from the tooling list; still
+  listed as roadmap although shipped).
+
 ## Current limitations (roadmap)
 
 1. **Single-platform packaging.** Installation is documented and guaranteed for
@@ -59,15 +72,15 @@ modules (see `examples/service-booking/`).
 
 ## Scorecard (v0.3.0)
 
-| Dimension | v0.1.0 | v0.3.0 | Note |
+| Dimension | v0.1.0 | v0.4.0 | Note |
 |---|---|---|---|
 | Method & philosophy | 9/10 | 9/10 | Unchanged strength |
-| Stage coverage | 8/10 | 8/10 | Profiles help apply it right-sized |
+| Stage coverage | 8/10 | 8/10 | Profiles + gate scope by profile |
 | Actionable for an agent | 7/10 | 8/10 | Profiles + wired tooling |
 | Metric reproducibility | 3/10 | 7/10 | Rubric + scripts; not 100% computed |
-| Tooling / scripts | 1/10 | 8/10 | contrast/shots/benchmark/slop-lint, tested |
+| Tooling / scripts | 1/10 | 9/10 | 5 tested scripts incl. slop-lint + identity-fingerprint |
 | Skill packaging | 2/10 | 8/10 | Frontmatter + install (Claude Code only) |
-| Examples & onboarding | 3/10 | 6/10 | One worked example |
+| Examples & onboarding | 3/10 | 7/10 | README, install, example, changelog, eval |
 | Versioning / license | 2/10 | 8/10 | MIT + semver + changelog |
 | Ethics / honesty | 10/10 | 10/10 | Best trait |
 
@@ -75,8 +88,9 @@ modules (see `examples/service-booking/`).
 
 v0.1.0 was **a strong methodology trying to present itself as a skill.**
 
-v0.3.0 is **a functional early-stage skill** — installable on Claude Code, with
-its own methodology, project memory, gates, anchored rubrics and real validation
-tooling. It is ready to share as an **experimental / early release**. The next
-level is multi-platform packaging, deeper automation of the judgment scores, and
-more examples.
+v0.4.0 is **a functional early-stage skill** — installable on Claude Code, with
+its own methodology, project memory, profile-scoped gates, anchored rubrics and
+real validation tooling (contrast, viewport, benchmark, slop and cross-project
+convergence). It is ready to share as an **experimental / early release**. The
+next level is multi-platform packaging, deeper automation of the judgment
+scores, and more examples (a second, different-mode piece).
