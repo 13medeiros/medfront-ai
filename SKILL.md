@@ -11,7 +11,7 @@ description: >-
   certify) with reproducible, evidence-based scoring.
 license: MIT
 metadata:
-  version: 0.3.0
+  version: 0.4.0
 ---
 
 # MedFront AI
@@ -69,8 +69,21 @@ which profile you are using.
 | **AUDIT** | Evaluate or retrofit an existing UI | `foundation` (reconstruct context) → `chroma` → `benchmark` → `anti-slop` → `inspect` → `certify` |
 | **FULL** | A complete, ambitious build from scratch | all 18 steps |
 
-The certification gates apply to every profile: never certify with an open
-P0/P1 or a failing Color/Slop/performance gate.
+### Gates by profile
+
+Certification *scope* differs — do not fail a local review for skipping
+product-wide checks:
+
+- **QUICK** — no full-product certification. Produce "quick review passed" for
+  the analyzed scope: fix the P0/P1s found; state what was out of scope.
+- **STANDARD** — apply the gates relevant to the feature/page (contrast on the
+  touched surfaces, its states and viewports). Do not gate on unrelated pages.
+- **AUDIT** and **FULL** — apply all certification gates.
+
+When a project already has `PRODUCT.md` / `IDENTITY.md` / `MOTION.md` and a
+color system, treat `foundation`, `identity` and `chroma` as
+**read-and-verify**, not recreate — update them only if the direction actually
+changes. This keeps STANDARD light on existing products.
 
 ## Resources — load on demand (progressive disclosure)
 
@@ -100,8 +113,9 @@ scripts instead of estimating — and never fabricate results.
 | 6-viewport screenshots | `scripts/shots.mjs` | `node scripts/shots.mjs --base http://localhost:3000 --out ./screenshots` |
 | Performance & a11y (benchmark) | `scripts/benchmark.mjs` | `node scripts/benchmark.mjs --url http://localhost:3000` |
 | Slop evidence (anti-slop) | `scripts/slop-lint.mjs` | `node scripts/slop-lint.mjs src` |
+| Cross-project convergence (compare) | `scripts/identity-fingerprint.mjs` | `node scripts/identity-fingerprint.mjs src --vs ../other` |
 
-`contrast.mjs` and `slop-lint.mjs` need no dependencies. `shots.mjs` needs `puppeteer-core` and a
+`contrast.mjs`, `slop-lint.mjs` and `identity-fingerprint.mjs` need no dependencies. `shots.mjs` needs `puppeteer-core` and a
 local Chrome/Edge (auto-detected). `benchmark.mjs` shells out to
 `npx lighthouse`. Each script degrades gracefully and prints a reproducible
 command when a tool is unavailable — report the limitation, do not invent
