@@ -1,0 +1,16 @@
+{
+  "name": "medfront-ai-scripts",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "Deterministic validation tools for the MedFront AI skill (contrast, viewport screenshots, benchmark).",
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "puppeteer-core": "^23.0.0"
+  },
+  "scripts": {
+    "contrast": "node contrast.mjs",
+    "shots": "node shots.mjs",
+    "benchmark": "node benchmark.mjs"
+  }
+}
