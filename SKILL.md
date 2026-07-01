@@ -1,31 +1,39 @@
 ---
 name: medfront-ai
 description: >-
-  Product-first methodology for designing, building, auditing and refining
-  distinctive, accessible, high-quality web frontends. Use when creating or
-  reviewing a UI, landing page, dashboard, web app or design system — to avoid
-  generic "AI slop", establish a color system (chroma), validate contrast,
-  accessibility and performance (benchmark), test real states, and certify
-  quality. Guides work through staged commands
-  (foundation → identity → chroma → build → benchmark → anti-slop → inspect →
-  certify) with reproducible, evidence-based scoring.
+  Direct distinctive frontends and prove they work. Use when building, reviewing
+  or auditing any UI — a landing page, dashboard, web app, component or design
+  system. MedFront gives your agent a product-first design method (concept
+  before components; anti-"AI slop"; a real color system; real states;
+  accessibility) AND measured gates it cannot fake: contrast, benchmark,
+  cross-project convergence, and a runtime smoke check that blocks "certified but
+  broken". Pull one discipline as a command (chroma, motion, reflow, anti-slop,
+  inspect, smoke, certify) or run a full profile (QUICK / STANDARD / AUDIT / FULL).
 license: MIT
 metadata:
-  version: 0.7.0
+  version: 0.8.0
 ---
 
 # MedFront AI
 
-Frontend direction, creation, inspection and refinement for building
-distinctive, high-quality digital experiences.
+**Direct the design. Then prove it.** The frontend skill that won't hand your
+agent generic slop — or certify what it never actually ran.
+
+## The problem it solves
+
+AI ships frontends that all look the same, and that nobody actually opened:
+purple-blue gradients, identical card grids, green scores, broken in the
+browser. MedFront gives your agent a **product-first method** to make the UI
+distinctive — and **measured gates it can't fake**, including a runtime smoke
+check that blocks "certified but broken".
 
 ## When to use this skill
 
-Use it whenever you are about to design, build, refactor, audit or review a web
-frontend — a landing page, dashboard, web app, component or design system.
-Reach for it especially to escape generic SaaS aesthetics, to make color and
-motion decisions defensible, and to certify accessibility, performance and
-resilience with evidence rather than claims.
+Use it whenever you design, build, refactor, audit or review a web frontend.
+**Pull one command** when you need a single discipline — `chroma`, `motion`,
+`reflow`, `anti-slop`, `compare`, `inspect`, `smoke`, `certify` — or **run a
+profile** (QUICK / STANDARD / AUDIT / FULL) for the whole arc. Command palette:
+[`COMMANDS.md`](./COMMANDS.md).
 
 ## Core principle
 

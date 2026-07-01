@@ -3,6 +3,27 @@
 All notable changes to MedFront AI are documented here.
 This project aims to follow [Semantic Versioning](https://semver.org/).
 
+## [0.8.0] — 2026-07-01
+
+Positioning: a sharp pitch and a directable command palette.
+
+### Added
+- **`COMMANDS.md`** — MedFront as a *palette you pull from*, not only an 18-step
+  pipeline. Commands grouped into **Direct / Build / Prove**, each tied to its
+  contract and tool; profiles remain the bundles.
+
+### Changed
+- **Sharpened the pitch.** `SKILL.md` frontmatter, its hero and the `README.md`
+  now lead with one problem + one mechanism: *"direct the design, then prove
+  it — no slop, and no certifying what you never ran."* The measured gates
+  (especially the runtime smoke check) are framed as the differentiator, and
+  the workflow is presented as "pull one command, or run a profile."
+
+### Why
+Inspired by feedback comparing MedFront to a sharper, product-shaped skill: the
+method was strong but described as a broad process. This reframes it as a
+directable toolkit without changing the methodology or the gates.
+
 ## [0.7.0] — 2026-07-01
 
 The runtime gate — stop certifying pages that don't run.

@@ -46,7 +46,7 @@ modules (see `examples/service-booking/`).
 - Fixed README inconsistencies (slop-lint missing from the tooling list; still
   listed as roadmap although shipped).
 
-## Added in v0.5.0–v0.7.0
+## Added in v0.5.0–v0.8.0
 
 - **v0.5.0 — Quick Start + `prompts/`** so usage starts from a ready, profile-tied
   template instead of a generic "follow MedFront".
@@ -62,6 +62,11 @@ modules (see `examples/service-booking/`).
   that nobody caught, because nobody had opened the page. `smoke.mjs` catches
   exactly that. The lesson is now baked in: **evidence over assertion, running
   over reasoning; verification incomplete is not certification.**
+- **v0.8.0 — positioning + command palette.** Sharpened the pitch (one problem,
+  one mechanism: *direct the design, then prove it*) and reframed the method as a
+  directable palette (`COMMANDS.md`: Direct / Build / Prove) — pull one command
+  or run a profile. No change to the methodology or gates; lowers activation
+  energy and makes the verification differentiator explicit.
 
 ## Current limitations (roadmap)
 
@@ -88,9 +93,9 @@ modules (see `examples/service-booking/`).
 - File-based project memory makes decisions explicit and re-auditable.
 - Real states (empty/error/loading/extreme) are first-class.
 
-## Scorecard (v0.7.0)
+## Scorecard (v0.8.0)
 
-| Dimension | v0.1.0 | v0.7.0 | Note |
+| Dimension | v0.1.0 | v0.8.0 | Note |
 |---|---|---|---|
 | Method & philosophy | 9/10 | 9/10 | Unchanged strength |
 | Stage coverage | 8/10 | 8/10 | Profiles + gate scope by profile |
@@ -106,7 +111,7 @@ modules (see `examples/service-booking/`).
 
 v0.1.0 was **a strong methodology trying to present itself as a skill.**
 
-v0.7.0 is **a functional early-stage skill** — installable on Claude Code, with
+v0.8.0 is **a functional early-stage skill** — installable on Claude Code, with
 its own methodology, project memory, profile-scoped gates, anchored rubrics,
 ready prompts, two worked examples, and validation tooling that now includes a
 **behavioral smoke gate** (the page must actually run before it can be
