@@ -3,6 +3,22 @@
 All notable changes to MedFront AI are documented here.
 This project aims to follow [Semantic Versioning](https://semver.org/).
 
+## [0.4.1] — 2026-07-01
+
+Documentation and CI-semantics fixes from a v0.4.0 review.
+
+### Fixed
+- `EVALUATION.md`: scorecard heading said `(v0.3.0)` while the table already
+  scored v0.4.0.
+- `SKILL.md`: the global gates section is now "Full-product certification
+  gates" and states it applies by profile scope (QUICK does not produce
+  full-product certification), removing ambiguity against the profile rules.
+- `README.md`: corrected the CI claim — gate-oriented scripts exit non-zero on
+  failure, while advisory `slop-lint`/`identity-fingerprint` do so only with
+  `--max`; examples now show the threshold.
+- `README.md`: the `compare` module row now mentions cross-project identity
+  convergence.
+
 ## [0.4.0] — 2026-07-01
 
 Profile-scoped gates, cross-project convergence detection, and doc fixes.
