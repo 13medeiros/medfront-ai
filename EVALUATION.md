@@ -46,7 +46,7 @@ modules (see `examples/service-booking/`).
 - Fixed README inconsistencies (slop-lint missing from the tooling list; still
   listed as roadmap although shipped).
 
-## Added in v0.5.0–v0.11.0
+## Added in v0.5.0–v0.12.0
 
 - **v0.5.0 — Quick Start + `prompts/`** so usage starts from a ready, profile-tied
   template instead of a generic "follow MedFront".
@@ -81,6 +81,15 @@ modules (see `examples/service-booking/`).
   animation-led sites. It records a scroll filmstrip (frames the agent reads as a
   sequence), measures FPS/jank, checks reduced-motion, and detects
   scroll-jacking and animation libraries. Validated on a heavy scroll site.
+- **v0.12.0 — the motion probe grows up.** GPU-aware and self-aware: it films the
+  **intro on a time axis** (not just scroll), enables the real GPU where one
+  exists, measures smooth-scroll with a **natural wheel** (not a `scrollTo` that
+  fought Lenis), and **declares motion "unmeasurable"** when a page draws WebGL
+  but only a software renderer is available — the smoke principle applied to
+  motion. Plus a mode-aware framing across `motion`/`benchmark`/`inspect`:
+  evidence read against the experience mode, not a verdict. The lesson came from
+  dogfooding award-winning experiential sites, where the old probe's numbers were
+  its own blindness, not the site's fault.
 
 ## Current limitations (roadmap)
 
@@ -100,6 +109,11 @@ modules (see `examples/service-booking/`).
    further.
 5. **No CI recipe.** The scripts exit non-zero on failure but there is no
    provided workflow file wiring them into a pipeline yet.
+6. **Motion deep-capture (designed, not shipped).** A CDP pass — `Page.startScreencast`
+   dense flipbook, `Tracing`-domain compositor FPS, `Animation`-domain inventory
+   (time / scroll / view / rAF-WebGL drivers) — is designed for v0.13. Until then
+   the probe films a time + scroll filmstrip and **declares WebGL motion
+   *unmeasurable* on a GPU-less host** rather than faking it.
 
 ## Strengths (unchanged)
 
@@ -109,15 +123,15 @@ modules (see `examples/service-booking/`).
 - File-based project memory makes decisions explicit and re-auditable.
 - Real states (empty/error/loading/extreme) are first-class.
 
-## Scorecard (v0.11.0)
+## Scorecard (v0.12.0)
 
-| Dimension | v0.1.0 | v0.11.0 | Note |
+| Dimension | v0.1.0 | v0.12.0 | Note |
 |---|---|---|---|
 | Method & philosophy | 9/10 | 9/10 | Unchanged strength |
 | Stage coverage | 8/10 | 8/10 | Profiles + gate scope by profile |
 | Actionable for an agent | 7/10 | 8/10 | Profiles + prompts + wired tooling |
 | Metric reproducibility | 3/10 | 8/10 | Rubric + scripts + behavioral smoke gate; judgment scores still manual |
-| Tooling / scripts | 1/10 | 9/10 | 7 tested scripts incl. slop-lint, convergence, runtime smoke and a motion probe |
+| Tooling / scripts | 1/10 | 9/10 | 7 tested scripts incl. slop-lint, convergence, runtime smoke and a GPU-aware motion probe |
 | Skill packaging | 2/10 | 8/10 | Frontmatter + install (Claude Code only) |
 | Examples & onboarding | 3/10 | 8/10 | Quick Start + prompts + two worked examples |
 | Versioning / license | 2/10 | 8/10 | MIT + semver + changelog |
@@ -127,7 +141,7 @@ modules (see `examples/service-booking/`).
 
 v0.1.0 was **a strong methodology trying to present itself as a skill.**
 
-v0.11.0 is **a functional early-stage skill** — installable on Claude Code, with
+v0.12.0 is **a functional early-stage skill** — installable on Claude Code, with
 its own methodology, project memory, profile-scoped gates, anchored rubrics,
 ready prompts, two worked examples, and validation tooling that now includes a
 **behavioral smoke gate** (the page must actually run before it can be

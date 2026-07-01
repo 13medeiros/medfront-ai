@@ -27,7 +27,7 @@ live in [`prompts/`](./prompts).
 |---|---|---|
 | `build` | Semantic, accessible, maintainable code | implementing the direction |
 | `reflow` | Recompose across breakpoints · `scripts/shots.mjs` | mobile ≠ shrunk desktop |
-| `motion` | Movement language + reduced-motion · `scripts/motion.mjs` (filmstrip + FPS) | animation needs purpose, not noise |
+| `motion` | Movement language + reduced-motion · `scripts/motion.mjs` (time + scroll filmstrip · GPU-honest FPS) | animation needs purpose, not noise |
 
 ## Prove — measured, can't fake
 

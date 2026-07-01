@@ -14,12 +14,14 @@ convergence, and a **runtime smoke check** that blocks *certified-but-broken*.
 `inspect`, `smoke`, `certify`) or **run a profile** for the whole arc — see the
 command palette in [`COMMANDS.md`](./COMMANDS.md).
 
-> Status: `v0.11.0` — **experimental / early release.** Installable Claude Code
+> Status: `v0.12.0` — **experimental / early release.** Installable Claude Code
 > skill: a directable command palette, measured quality modules, seven tested
 > tools (contrast, screenshots, benchmark, a **37-rule deterministic frontend
 > auditor** that separates slop / honesty / accessibility / hygiene, convergence,
-> runtime smoke, and a **motion probe** — filmstrip + FPS + reduced-motion),
-> ready-to-paste prompts and two worked examples. See
+> runtime smoke, and a **GPU-aware motion probe** — time + scroll filmstrips,
+> honest FPS, reduced-motion — that declares motion *unmeasurable* rather than
+> faking a number when it can't render), ready-to-paste prompts and two worked
+> examples. See
 > [`QUICK_START.md`](./QUICK_START.md), [`CHANGELOG.md`](./CHANGELOG.md) and
 > [`EVALUATION.md`](./EVALUATION.md).
 
@@ -115,7 +117,7 @@ node scripts/benchmark.mjs --url http://localhost:3000  # Lighthouse report
 node scripts/slop-lint.mjs src --max 30                          # AI-slop evidence (gate at 30)
 node scripts/identity-fingerprint.mjs src --vs ../other --max 60 # convergence (gate at 60)
 node scripts/smoke.mjs src                              # did it actually run? (non-skippable gate)
-node scripts/motion.mjs --url http://localhost:3000    # motion: filmstrip + FPS + reduced-motion
+node scripts/motion.mjs --url http://localhost:3000    # motion: time+scroll filmstrip · GPU-honest FPS
 ```
 
 Gate-oriented scripts (`contrast`, `shots`, `benchmark`, `smoke`) exit non-zero

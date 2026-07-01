@@ -11,7 +11,7 @@ description: >-
   inspect, smoke, certify) or run a full profile (QUICK / STANDARD / AUDIT / FULL).
 license: MIT
 metadata:
-  version: 0.11.0
+  version: 0.12.0
 ---
 
 # MedFront AI
@@ -124,7 +124,7 @@ scripts instead of estimating — and never fabricate results.
 | Slop evidence (anti-slop) | `scripts/slop-lint.mjs` | `node scripts/slop-lint.mjs src` |
 | Cross-project convergence (compare) | `scripts/identity-fingerprint.mjs` | `node scripts/identity-fingerprint.mjs src --vs ../other` |
 | Runtime smoke — did it actually run? (inspect / certify) | `scripts/smoke.mjs` | `node scripts/smoke.mjs src` |
-| Motion probe — filmstrip + FPS + reduced-motion (motion) | `scripts/motion.mjs` | `node scripts/motion.mjs --url http://localhost:3000` |
+| Motion probe — time + scroll filmstrip · GPU-honest FPS · reduced-motion (motion) | `scripts/motion.mjs` | `node scripts/motion.mjs --url http://localhost:3000` |
 
 `contrast.mjs`, `slop-lint.mjs` and `identity-fingerprint.mjs` need no dependencies. `shots.mjs`, `smoke.mjs` and `motion.mjs` need `puppeteer-core` and a
 local Chrome/Edge (auto-detected). `benchmark.mjs` shells out to
