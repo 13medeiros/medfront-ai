@@ -101,6 +101,22 @@ Exit: `0` pass · `1` fail (errors / stuck) · `2` BLOCKED (could not run —
 treat as *not certified*, not "certified with a note"). Needs `puppeteer-core`
 + a local Chrome/Edge. A green Color/Slop score means nothing if this fails.
 
+## `motion.mjs` — motion probe (motion / inspect)
+
+Makes an agent able to **see and measure animation**, not just static frames.
+
+```bash
+node motion.mjs --url https://site.com                 # report + filmstrip
+node motion.mjs --url https://site.com --out ./motion  # where frames go
+node motion.mjs --url https://site.com --json          # machine-readable
+```
+
+Captures a **scroll filmstrip** (frames to read as a sequence), measures **FPS /
+jank** during a scripted scroll, checks **reduced-motion** (captures a with-vs-
+without pair), and detects **scroll-jacking** and animation libraries (GSAP,
+ScrollTrigger, Lenis, Lottie, WebGL/three, AOS, Swiper…). Needs `puppeteer-core`
++ a local Chrome/Edge. The frames and numbers are evidence; taste stays yours.
+
 ## Platform note
 
 On **Git Bash (Windows)** prefix commands with `MSYS_NO_PATHCONV=1` so route

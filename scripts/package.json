@@ -1,9 +1,9 @@
 {
   "name": "medfront-ai-scripts",
-  "version": "0.10.1",
+  "version": "0.11.0",
   "private": true,
   "type": "module",
-  "description": "Deterministic validation tools for the MedFront AI skill (contrast, screenshots, benchmark, slop-lint, identity-fingerprint, smoke).",
+  "description": "Deterministic validation tools for the MedFront AI skill (contrast, screenshots, benchmark, slop-lint, identity-fingerprint, smoke, motion).",
   "engines": { "node": ">=18" },
   "dependencies": {
     "puppeteer-core": "^23.0.0"
@@ -14,6 +14,7 @@
     "benchmark": "node benchmark.mjs",
     "slop-lint": "node slop-lint.mjs",
     "fingerprint": "node identity-fingerprint.mjs",
-    "smoke": "node smoke.mjs"
+    "smoke": "node smoke.mjs",
+    "motion": "node motion.mjs"
   }
 }

@@ -46,7 +46,7 @@ modules (see `examples/service-booking/`).
 - Fixed README inconsistencies (slop-lint missing from the tooling list; still
   listed as roadmap although shipped).
 
-## Added in v0.5.0–v0.10.0
+## Added in v0.5.0–v0.11.0
 
 - **v0.5.0 — Quick Start + `prompts/`** so usage starts from a ready, profile-tied
   template instead of a generic "follow MedFront".
@@ -76,6 +76,11 @@ modules (see `examples/service-booking/`).
   confidence, count saturation and justified suppressions, plus new rules
   (MOTION-03, structural HERO/SECTION/BADGE/BORDER, more a11y). An original UI is
   no longer penalized for a missing alt or a console.log.
+- **v0.11.0 — motion probe.** `motion.mjs` closes the skill's one blind spot:
+  every other tool captured static state, but motion is the whole experience on
+  animation-led sites. It records a scroll filmstrip (frames the agent reads as a
+  sequence), measures FPS/jank, checks reduced-motion, and detects
+  scroll-jacking and animation libraries. Validated on a heavy scroll site.
 
 ## Current limitations (roadmap)
 
@@ -104,15 +109,15 @@ modules (see `examples/service-booking/`).
 - File-based project memory makes decisions explicit and re-auditable.
 - Real states (empty/error/loading/extreme) are first-class.
 
-## Scorecard (v0.10.1)
+## Scorecard (v0.11.0)
 
-| Dimension | v0.1.0 | v0.10.1 | Note |
+| Dimension | v0.1.0 | v0.11.0 | Note |
 |---|---|---|---|
 | Method & philosophy | 9/10 | 9/10 | Unchanged strength |
 | Stage coverage | 8/10 | 8/10 | Profiles + gate scope by profile |
 | Actionable for an agent | 7/10 | 8/10 | Profiles + prompts + wired tooling |
 | Metric reproducibility | 3/10 | 8/10 | Rubric + scripts + behavioral smoke gate; judgment scores still manual |
-| Tooling / scripts | 1/10 | 9/10 | 6 tested scripts incl. slop-lint, convergence and runtime smoke |
+| Tooling / scripts | 1/10 | 9/10 | 7 tested scripts incl. slop-lint, convergence, runtime smoke and a motion probe |
 | Skill packaging | 2/10 | 8/10 | Frontmatter + install (Claude Code only) |
 | Examples & onboarding | 3/10 | 8/10 | Quick Start + prompts + two worked examples |
 | Versioning / license | 2/10 | 8/10 | MIT + semver + changelog |
@@ -122,7 +127,7 @@ modules (see `examples/service-booking/`).
 
 v0.1.0 was **a strong methodology trying to present itself as a skill.**
 
-v0.10.1 is **a functional early-stage skill** — installable on Claude Code, with
+v0.11.0 is **a functional early-stage skill** — installable on Claude Code, with
 its own methodology, project memory, profile-scoped gates, anchored rubrics,
 ready prompts, two worked examples, and validation tooling that now includes a
 **behavioral smoke gate** (the page must actually run before it can be

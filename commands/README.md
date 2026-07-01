@@ -36,6 +36,14 @@ Recompose the interface for different widths, orientations, pointer types and de
 ## `motion`
 Define or inspect movement purpose, timing, easing, orchestration, performance and reduced-motion alternatives.
 
+**Don't judge motion from a static screenshot.** On a live URL, run
+`node scripts/motion.mjs --url <url>`: it captures a **scroll filmstrip** (frames
+to read as a sequence), measures **FPS / jank**, checks **reduced-motion** (with
+vs without), and detects **scroll-jacking** and animation libraries (GSAP, Lenis,
+Lottie, WebGL…). Read the filmstrip — does the movement reveal information and
+hold framerate, or is it decorative jank? Taste stays yours; the frames and the
+numbers are the evidence.
+
 ## `benchmark`
 Run or define reproducible measurements for performance, accessibility, best practices, SEO, Web Vitals, bundle weight, transfer size, images, fonts and animation cost. Never invent results.
 

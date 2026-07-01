@@ -14,11 +14,12 @@ convergence, and a **runtime smoke check** that blocks *certified-but-broken*.
 `inspect`, `smoke`, `certify`) or **run a profile** for the whole arc — see the
 command palette in [`COMMANDS.md`](./COMMANDS.md).
 
-> Status: `v0.10.1` — **experimental / early release.** Installable Claude Code
-> skill: a directable command palette, measured quality modules, six tested
+> Status: `v0.11.0` — **experimental / early release.** Installable Claude Code
+> skill: a directable command palette, measured quality modules, seven tested
 > tools (contrast, screenshots, benchmark, a **37-rule deterministic frontend
 > auditor** that separates slop / honesty / accessibility / hygiene, convergence,
-> runtime smoke), ready-to-paste prompts and two worked examples. See
+> runtime smoke, and a **motion probe** — filmstrip + FPS + reduced-motion),
+> ready-to-paste prompts and two worked examples. See
 > [`QUICK_START.md`](./QUICK_START.md), [`CHANGELOG.md`](./CHANGELOG.md) and
 > [`EVALUATION.md`](./EVALUATION.md).
 
@@ -114,14 +115,15 @@ node scripts/benchmark.mjs --url http://localhost:3000  # Lighthouse report
 node scripts/slop-lint.mjs src --max 30                          # AI-slop evidence (gate at 30)
 node scripts/identity-fingerprint.mjs src --vs ../other --max 60 # convergence (gate at 60)
 node scripts/smoke.mjs src                              # did it actually run? (non-skippable gate)
+node scripts/motion.mjs --url http://localhost:3000    # motion: filmstrip + FPS + reduced-motion
 ```
 
 Gate-oriented scripts (`contrast`, `shots`, `benchmark`, `smoke`) exit non-zero
 on failure; the advisory `slop-lint` and `identity-fingerprint` exit non-zero
 only with a `--max` threshold — so all are CI-usable. `contrast.mjs`,
-`slop-lint.mjs` and `identity-fingerprint.mjs` have no dependencies; `shots.mjs`
-and `smoke.mjs` need `puppeteer-core` + local Chrome/Edge; `benchmark.mjs`
-shells out to `npx lighthouse`.
+`slop-lint.mjs` and `identity-fingerprint.mjs` have no dependencies; `shots.mjs`,
+`smoke.mjs` and `motion.mjs` need `puppeteer-core` + local Chrome/Edge;
+`benchmark.mjs` shells out to `npx lighthouse`.
 
 ## Certification gates
 
